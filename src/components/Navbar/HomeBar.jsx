@@ -1,153 +1,65 @@
-import React from "react";
-import {
-  Navbar,
-  Typography,
-  Button,
-  IconButton,
-  Input,
-  Collapse 
-} from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import React from 'react';
 
- 
-export default function NavbarWithSearch() {
-  const [openNav, setOpenNav] = React.useState(false);
- 
-  React.useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setOpenNav(false),
-    );
-  }, []);
- 
-  const navList = (
-    <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 !text-black">
-      <Typography
-        as="li"
-        variant="small"
-        className="flex items-center gap-x-2 font-medium"
-      >
-      <Link to="/auth/login">
-       <Button variant="outlined" size="sm" color="white">
-            Log In
-      </Button>
-      </Link>
-      <Link to="/auth/signup">
-      <Button variant="gradient" size="sm" color="green" >
-            Sign Up
-      </Button>
-      </Link>
-      </Typography>
-    </ul>
-  );
-  
-  const searchForm =(
-    <>
-          <div className="relative flex w-full gap-2 md:w-max">
-            <Input
-              type="search"
-              placeholder="Search"
-              containerProps={{
-                className: "min-w-[288px]",
-              }}
-              className=" !border-t-blue-gray-300 pl-9 placeholder:text-blue-gray-900 text-blue-gray-900 focus:!border-blue-gray-300"
-              labelProps={{
-                className: "before:content-none after:content-none",
-              }}
-            />
-            <div className="!absolute left-3 top-[13px]">
-              <svg
-                width="13"
-                height="14"
-                viewBox="0 0 14 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.97811 7.95252C10.2126 7.38634 10.3333 6.7795 10.3333 6.16667C10.3333 4.92899 9.84167 3.742 8.9665 2.86683C8.09133 1.99167 6.90434 1.5 5.66667 1.5C4.42899 1.5 3.242 1.99167 2.36683 2.86683C1.49167 3.742 1 4.92899 1 6.16667C1 6.7795 1.12071 7.38634 1.35523 7.95252C1.58975 8.51871 1.93349 9.03316 2.36683 9.4665C2.80018 9.89984 3.31462 10.2436 3.88081 10.4781C4.447 10.7126 5.05383 10.8333 5.66667 10.8333C6.2795 10.8333 6.88634 10.7126 7.45252 10.4781C8.01871 10.2436 8.53316 9.89984 8.9665 9.4665C9.39984 9.03316 9.74358 8.51871 9.97811 7.95252Z"
-                  fill="#CFD8DC"
-                />
-                <path
-                  d="M13 13.5L9 9.5M10.3333 6.16667C10.3333 6.7795 10.2126 7.38634 9.97811 7.95252C9.74358 8.51871 9.39984 9.03316 8.9665 9.4665C8.53316 9.89984 8.01871 10.2436 7.45252 10.4781C6.88634 10.7126 6.2795 10.8333 5.66667 10.8333C5.05383 10.8333 4.447 10.7126 3.88081 10.4781C3.31462 10.2436 2.80018 9.89984 2.36683 9.4665C1.93349 9.03316 1.58975 8.51871 1.35523 7.95252C1.12071 7.38634 1 6.7795 1 6.16667C1 4.92899 1.49167 3.742 2.36683 2.86683C3.242 1.99167 4.42899 1.5 5.66667 1.5C6.90434 1.5 8.09133 1.99167 8.9665 2.86683C9.84167 3.742 10.3333 4.92899 10.3333 6.16667Z"
-                  stroke="#CFD8DC"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-          <Button size="md" color="green" className="rounded-lg ">
-            Search
-          </Button>
-        </>
-  )
- 
+import anfilms from '../../assets/anfilms.png'
+const Navbar = () => {
+  // State to manage the navbar's visibility
+
   return (
-    <Navbar
-      variant="gradient"
-      color="blue-gray"
-      className="relative mx-auto max-w-screen-xl px-4 py-2 lg:px-8 lg:py-4 z-30"
-      >
-      <div className="container mx-auto flex flex-wrap items-center justify-between text-blue-gray-900">
-        <Typography
-          as="a"
-          href="/"
-          className="mr-4 cursor-pointer font-medium"
-        >
-          {/* <Logo1 styless={`w-[6rem]`} image={Logo} /> */}
-          .
-        </Typography>
-        <form className="hidden items-center gap-x-2 lg:flex">
-          {searchForm}
-        </form>
-        <div className="hidden lg:block">{navList}</div>
-        <IconButton
-          variant="text"
-          className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-          ripple={false}
-          onClick={() => setOpenNav(!openNav)}
-        >
-          {openNav ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              className="h-6 w-6"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          )}
-        </IconButton>
+    
+
+<nav className="border-gray-200 bg-[#1d1a1ac4] z-40 absolute top-0 left-0 !w-[100vw] ">
+  <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+  <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src={anfilms} className="h-[4rem]" alt="Flowbite Logo" />
+      {/* <span className="self-center text-2xl font-semibold whitespace-nowrap !text-white">anfilms</span> */}
+  </a>
+  <div className="flex md:order-2 bg-inherit">
+    <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" className="md:hidden  !text-gray-400 hover:bg-gray-100 !hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 !focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1">
+      <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+      </svg>
+      <span className="sr-only">Search</span>
+    </button>
+    <div className="relative hidden md:block">
+      <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+        <svg className="w-4 h-4  !text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+        </svg>
+        <span className="sr-only">Search icon</span>
       </div>
-      <Collapse  open={openNav}>
-        <div className="container mx-auto">
-          {navList}
-          <form className="flex flex-col gap-x-2 gap-1 sm:flex-row sm:items-center">
-            {searchForm}
-          </form>
+      <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm  border rounded-lg  focus:border-blue-500  !border-gray-600 !placeholder-gray-400 text-white focus:ring-blue-500 !focus:border-blue-500" placeholder="Search..."/>
+    </div>
+    <button data-collapse-toggle="navbar-search" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm  rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 !text-gray-400 !hover:bg-gray-700 !focus:ring-gray-600" aria-controls="navbar-search" aria-expanded="false">
+        <span className="sr-only">Open main menu</span>
+        <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+    </button>
+  </div>
+    <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 " id="navbar-search">
+      <div className="relative mt-3 md:hidden">
+        <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+          <svg className="w-4 h-4 !text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+          </svg>
         </div>
-      </Collapse>
-    </Navbar>
+        <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm border rounded-lg  focus:border-blue-500  !border-gray-600 !placeholder-gray-400 !text-white focus:ring-blue-500 !focus:border-blue-500" placeholder="Search..."/>
+      </div>
+      <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border  rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0   !border-gray-700">
+        <li>
+          <a href="/" className="block py-3 px-4 text-white rounded md:bg-transparent  md:p-0 md:!text-blue-500" aria-current="page">Home</a>
+        </li>
+        <li>
+          <a href="/auth/login" className="block py-3 px-4 rounded  md:hover:text-blue-700 md:p-0 md:!hover:text-blue-500 !text-white  hover:text-white md:!hover:bg-transparent !border-gray-700">Login</a>
+        </li>
+        <li>
+          <a href="/auth/signup" className="block py-3 px-4 rounded   md:hover:text-blue-700 md:p-0 !text-white md:!hover:text-blue-500  hover:text-white md:!hover:bg-transparent !border-gray-700">Signup</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
   );
-}
+};
+
+export default Navbar;

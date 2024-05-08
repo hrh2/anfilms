@@ -8,15 +8,15 @@ import { MdExitToApp } from 'react-icons/md';
 
 const Sidebar = ({admin}) => {
   const [activeLinkIdx] = useState(1);
-  const [sidebarClass, setSidebarClass] = useState("");
+  const [sidebarclassName, setSidebarclassName] = useState("");
   const { isSidebarOpen } = useContext(SidebarContext);
   // Start with loader shown initially
 
   useEffect(() => {
     if(isSidebarOpen){
-      setSidebarClass('sidebar-change');
+      setSidebarclassName('sidebar-change');
     } else {
-      setSidebarClass('');
+      setSidebarclassName('');
     }
   }, [isSidebarOpen]);
   const handleLogout = () => {
@@ -26,7 +26,7 @@ const Sidebar = ({admin}) => {
   };
 
   return (
-    <div className={ `sidebar ${sidebarClass} bg-sidebar` }>
+    <div className={ `sidebar ${sidebarclassName} bg-sidebar` }>
     <div className='fixed'>
       <div className="user-info cursor-pointer">
           <div className="info-img img-fit-cover">

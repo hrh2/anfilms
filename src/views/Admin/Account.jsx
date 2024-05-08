@@ -41,16 +41,16 @@ const Account = () => {
     fetchVideos();
   }, []);
   return (
-  <div class="min-h-[60vh] dark:bg-slate-800 gap-8 grid md:grid-cols-2 grid-cols-1 p-8">
+  <div className="min-h-[60vh] !bg-slate-800 gap-8 grid md:grid-cols-2 grid-cols-1 p-8">
   {loader?
   <div className="flex app justify-center items-center w-full">
   <HashLoader color="#36d7b7" />
   </div>
   :<div
-    class="bg-gray-100 dark:bg-gray-700 relative shadow-xl overflow-hidden hover:shadow-2xl group rounded-xl p-5 transition-all duration-500 transform">
-    <div class="items-center gap-4">
+    className="bg-gray-100 !bg-gray-700 relative shadow-xl overflow-hidden hover:shadow-2xl group rounded-xl p-5 transition-all duration-500 transform">
+    <div className="items-center gap-4">
       <img src={user.image?user.image:"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwyfHxhdmF0YXJ8ZW58MHwwfHx8MTY5MTg0NzYxMHww&ixlib=rb-4.0.3&q=80&w=1080"}
-      class="w-32 group-hover:w-36 group-hover:h-36 h-32 object-center object-cover rounded-full transition-all duration-500 delay-500 transform"
+      className="w-32 group-hover:w-36 group-hover:h-36 h-32 object-center object-cover rounded-full transition-all duration-500 delay-500 transform"
      alt=''/>
       <Profile user={user}/>
     </div>

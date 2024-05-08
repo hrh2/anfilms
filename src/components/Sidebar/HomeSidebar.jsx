@@ -7,14 +7,14 @@ import { MdExitToApp } from 'react-icons/md'; // Importing logout icon
 
 const Sidebar = ({ user }) => {
   const [activeLinkIdx] = useState(1);
-  const [sidebarClass, setSidebarClass] = useState("");
+  const [sidebarclassName, setSidebarclassName] = useState("");
   const { isSidebarOpen } = useContext(SidebarContext);
 
   useEffect(() => {
     if (isSidebarOpen) {
-      setSidebarClass('sidebar-change');
+      setSidebarclassName('sidebar-change');
     } else {
-      setSidebarClass('');
+      setSidebarclassName('');
     }
   }, [isSidebarOpen]);
 
@@ -25,7 +25,7 @@ const Sidebar = ({ user }) => {
   };
 
   return (
-    <div className={`sidebar ${sidebarClass} relative !bg-gradient-to-tl from-[#20f48e26] to-[#030303f5]`}>
+    <div className={`sidebar ${sidebarclassName} relative !bg-gradient-to-tl from-[#20f48e26] to-[#030303f5]`}>
       <div className='fixed'>
         <div className="user-info cursor-pointer">
           <div className="info-img img-fit-cover">
