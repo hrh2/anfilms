@@ -1,17 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import './styles/AdminDashboard.css'
+import './styles/AdminMain.css'
+import './styles/Budget.css'
+import './styles/Cards.css'
+import './styles/ContentTop.css'
+import './styles/Financial.css'
+import './styles/Loans.css'
+import './styles/Report.css'
+import './styles/Savings.css'
+import './styles/Sidebar.css'
+import './styles/Subscriptions.css'
+import './styles/VideoRate.css'
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { SidebarProvider } from './context/sidebarContext.jsx';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// @material-tailwind/react
+import { ThemeProvider } from "@material-tailwind/react";
+import { BrowserRouter } from "react-router-dom";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <ThemeProvider>
+        <SidebarProvider>
+          <App />
+         </SidebarProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
