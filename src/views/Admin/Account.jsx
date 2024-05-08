@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { HashLoader } from "react-spinners";
 import Alert from '@mui/material/Alert';
+import { personsImgs } from '../../hooks/images';
+
 
 
 const Account = () => {
@@ -47,9 +49,9 @@ const Account = () => {
   <HashLoader color="#36d7b7" />
   </div>
   :<div
-    className="bg-gray-100 !bg-gray-700 relative shadow-xl overflow-hidden hover:shadow-2xl group rounded-xl p-5 transition-all duration-500 transform">
+    className="bg-gray-100 relative shadow-xl overflow-hidden hover:shadow-2xl group rounded-xl p-5 transition-all duration-500 transform">
     <div className="items-center gap-4">
-      <img src={user.image?user.image:"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwyfHxhdmF0YXJ8ZW58MHwwfHx8MTY5MTg0NzYxMHww&ixlib=rb-4.0.3&q=80&w=1080"}
+      <img src={user.image?user.image:personsImgs.person_one }
       className="w-32 group-hover:w-36 group-hover:h-36 h-32 object-center object-cover rounded-full transition-all duration-500 delay-500 transform"
      alt=''/>
       <Profile user={user}/>
