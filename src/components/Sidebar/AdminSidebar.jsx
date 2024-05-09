@@ -4,6 +4,7 @@ import { adminNavigationLinks } from '../../data/data';
 import { useContext } from 'react';
 import { SidebarContext } from '../../context/sidebarContext';
 import { MdExitToApp } from 'react-icons/md'; 
+import { Link } from 'react-router-dom';
 
 
 const Sidebar = ({admin}) => {
@@ -40,10 +41,10 @@ const Sidebar = ({admin}) => {
             {
               adminNavigationLinks.map((navigationLink) => (
                 <li className="nav-item" key = { navigationLink.id }>
-                  <a href={`${navigationLink.link}`} className={ `nav-link !text-[#1d1c1ce6] ${ navigationLink.id === activeLinkIdx ? 'active' : null }` }>
+                  <Link to={`${navigationLink.link}`} className={ `nav-link !text-[#1d1c1ce6] ${ navigationLink.id === activeLinkIdx ? 'active' : null }` }>
                       {navigationLink.icon}
                       <span className="nav-link-text !text-[#000]">{ navigationLink.title }</span>
-                  </a>
+                  </Link>
                 </li>
               ))
             }

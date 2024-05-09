@@ -4,6 +4,7 @@ import { homeNavigationLinks } from '../../data/data';
 import { useContext } from 'react';
 import { SidebarContext } from '../../context/sidebarContext';
 import { MdExitToApp } from 'react-icons/md'; // Importing logout icon
+import { Link } from 'react-router-dom';
 
 const Sidebar = ({ user }) => {
   const [activeLinkIdx] = useState(1);
@@ -38,10 +39,10 @@ const Sidebar = ({ user }) => {
           <ul className="nav-list">
             {homeNavigationLinks.map((navigationLink) => (
               <li className="nav-item" key={navigationLink.id}>
-                <a href={`${navigationLink.link}`} className={`nav-link !text-[#fff] ${navigationLink.id === activeLinkIdx ? 'active' : null}`}>
+                <Link to={`${navigationLink.link}`} className={`nav-link !text-[#fff] ${navigationLink.id === activeLinkIdx ? 'active' : null}`}>
                   {navigationLink.icon}
                   <span className="nav-link-text !text-[#fff]">{navigationLink.title}</span>
-                </a>
+                </Link>
               </li>
             ))}
             <li className="nav-item">

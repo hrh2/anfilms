@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import anfilms from '../../assets/anfilms.png'
 const Navbar = () => {
@@ -9,10 +10,10 @@ const Navbar = () => {
 
 <nav className="border-gray-200 bg-[#1d1a1ac4] z-40 absolute top-0 left-0 !w-[100vw] ">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-  <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+  <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
       <img src={anfilms} className="h-[4rem]" alt="Flowbite Logo" />
       {/* <span className="self-center text-2xl font-semibold whitespace-nowrap !text-white">anfilms</span> */}
-  </a>
+  </Link>
   <div className="flex md:order-2 bg-inherit">
     <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" className="md:hidden  !text-gray-400 hover:bg-gray-100 !hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 !focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1">
       <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -47,13 +48,13 @@ const Navbar = () => {
       </div>
       <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border  rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0   !border-gray-700">
         <li>
-          <a href="/" className="block py-3 px-4 text-white rounded md:bg-transparent  md:p-0 md:!text-blue-500" aria-current="page">Home</a>
+          <Link to="/" className="block py-3 px-4 text-white rounded md:bg-transparent  md:p-0 md:!text-blue-500" aria-current="page">Home</Link>
         </li>
         <li>
-          <a href="/auth/login" className="block py-3 px-4 rounded  md:hover:text-blue-700 md:p-0 md:!hover:text-blue-500 !text-white  hover:text-white md:!hover:bg-transparent !border-gray-700">Login</a>
+          <Link to="/auth/login" className="block py-3 px-4 rounded  md:hover:text-blue-700 md:p-0 md:!hover:text-blue-500 !text-white  hover:text-white md:!hover:bg-transparent !border-gray-700">Login</Link>
         </li>
         <li>
-          <a href="/auth/signup" className="block py-3 px-4 rounded   md:hover:text-blue-700 md:p-0 !text-white md:!hover:text-blue-500  hover:text-white md:!hover:bg-transparent !border-gray-700">Signup</a>
+          <Link to="/auth/signup" className="block py-3 px-4 rounded   md:hover:text-blue-700 md:p-0 !text-white md:!hover:text-blue-500  hover:text-white md:!hover:bg-transparent !border-gray-700">Signup</Link>
         </li>
       </ul>
     </div>

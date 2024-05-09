@@ -41,7 +41,7 @@ export default function HomebgFrame() {
           </div>
           <div className='absolute md:top-[10rem] md:left-[35vw]  font-bold left-[8%] !text-white grid grid-cols-1 md:gap-6  gap-4'>
               <Typography variant='h4' fontWeight={600}>
-                  Welcome to <i><Link className='text-green-600 md:text-2xl' >an-films</Link></i>
+                  Welcome to <i><Link className='text-green-600 md:text-2xl' to='/' >an-films</Link></i>
               </Typography>
               <Typography variant='h3' className='pl-[3rem]' fontWeight={900}>
                   Download Unlimited<br/>
@@ -50,7 +50,7 @@ export default function HomebgFrame() {
               </Typography>
               <Typography variant='h7'>
                  Enjoy Exclusive Music Video and Live shows<br/>
-                 Subscribe <Link className='text-green-600 text-xl' >an-films</Link> now
+                 Subscribe <Link className='text-green-600 text-xl' to='/' >an-films</Link> now
               </Typography>
           </div>
       </Box>

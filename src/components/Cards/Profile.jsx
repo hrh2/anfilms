@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Profile({user}) {
   return (
@@ -10,9 +11,9 @@ export default function Profile({user}) {
               <h6 className="mb-0">Profile Information</h6>
             </div>
             <div className="w-full max-w-full px-3 text-right shrink-0 md:w-4/12 md:flex-none">
-              <a href="/admin" data-target="tooltip_trigger" data-placement="top">
+              <Link to="/admin" data-target="tooltip_trigger" data-placement="top">
                 <i className="leading-normal fas fa-user-edit text-sm text-slate-400" aria-hidden="true"></i>
-              </a>
+              </Link>
               <div data-target="tooltip" className="px-2 py-1 !text-center !text-white !bg-black rounded-lg text-sm " role="tooltip" data-popper-placement="top">
                 Edit Profile
                 <div className="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']" data-popper-arrow=""></div>

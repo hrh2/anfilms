@@ -61,7 +61,7 @@ export default function Footer() {
             variant="small"
             className="mb-4 text-center font-normal text-[#fff] md:mb-0"
           >
-            &copy; {currentYear} <a href="/">an-films</a>. All
+            &copy; {currentYear} <Link to="/">an-films</Link>. All
             Rights Reserved.
           </Typography>
           <div className="flex gap-4 text-[#fff] sm:justify-center">

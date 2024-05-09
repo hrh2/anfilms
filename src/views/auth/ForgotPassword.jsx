@@ -5,6 +5,7 @@ import React,{useState} from "react";
 import Axios from 'axios';
 import { HashLoader } from "react-spinners";
 import { defaultServerUrl } from "../../data/servers";
+import { Link } from "react-router-dom";
 
 export default function Login() {
     
@@ -134,15 +135,15 @@ export default function Login() {
             <Checkbox disableRipple sx={{color: `${colors.green[500]}`}} />
             <Typography sx={{mt:1,ml:1}}>Remember me</Typography>
           </div>
-          <a
-            href="#yoyo"
+          <Link
+            to="#forgot"
             style={{
               color: `${colors.green[500]}`,
               textDecoration: "none",
             }}
           >
             Forget password?
-          </a>
+          </Link>
         </Box>
         <Button
           variant="contained"
@@ -152,8 +153,8 @@ export default function Login() {
         >
         <Typography variant="h5" fontWeight="bold" >Login</Typography>
         </Button>
-        <a
-            href="/signup"
+        <Link
+            to="/signup"
             className="text-center block mt-6 font-bold underline"
             style={{
               color: `${colors.green[500]}`,
@@ -161,7 +162,7 @@ export default function Login() {
             }}
           >
             Sign Up
-          </a>
+          </Link>
           {error&&<Alert severity="error">{error}</Alert>}
         </form>
       </Box>:

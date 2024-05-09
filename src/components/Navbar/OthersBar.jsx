@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const availableLinks = [
   { text: 'Home', href: '/' },
@@ -45,9 +46,9 @@ export default function OthersBar() {
       {searchInput && (
         <div className="absolute py-6 !h-[20vh] top-[13rem]  transform -translate-y-1/2  mx-auto md:w-[50%] sm:w-[80%] w-[90%] bg-[#000000b7] rounded-lg grid grid-cols-1 gap-4 z-30">
           {filteredLinks.map((link, index) => (
-            <a key={index} href={link.href} className="text-blue-500 hover:underline px-4">
+            <Link key={index} to={link.href} className="text-blue-500 hover:underline px-4">
               {link.text}
-            </a>
+            </Link>
           ))}
         </div>
       )}
