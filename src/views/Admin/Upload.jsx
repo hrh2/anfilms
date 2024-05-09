@@ -8,6 +8,7 @@ import Alert from '@mui/material/Alert';
 import Axios from "axios";
 import { ImCloudUpload } from "react-icons/im";
 import { HashLoader } from "react-spinners";
+import { streamServerUrl } from "../../data/servers";
 
 
 
@@ -57,7 +58,7 @@ export default function Upload() {
       const token = localStorage.getItem("anfilms_admin_token");
       Axios.defaults.headers.common.Authorization = `Bearer ${token}`
       const response = await Axios.post(
-        "https://api-anfilms.onrender.com/api/v1/videos/uploads",
+        `${streamServerUrl.upload}/api/v1/videos/uploads`,
         formData,
         {
           headers: {

@@ -4,13 +4,15 @@ import { MdOutlineTouchApp } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 import { Typography, Button } from '@mui/material';
-import '../../index.css';
+import { streamServerUrl} from '../../data/servers';
+
 
 export default function Video({ videoId, videoName, vidtype }) {
   const [posterLink, setPosterLink] = useState('');
   const [videoLink, setVideoLink] = useState('');
   const [isHovered, setIsHovered] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
+
   const queryParams = {
     id: videoId,
     name: videoName,
@@ -20,8 +22,8 @@ export default function Video({ videoId, videoName, vidtype }) {
 
   useEffect(() => {
     // Fetch poster and video URLs
-    const posterUrl = `https://api-anfilms.onrender.com/api/v1/videos/poster/${encodeURIComponent(videoName)}`;
-    const videoUrl = `https://api-anfilms.onrender.com/api/v1/videos/stream/${encodeURIComponent(videoId)}`;
+    const posterUrl = `${streamServerUrl.image}/api/v1/videos/poster/${encodeURIComponent(videoName)}`;
+    const videoUrl = `${streamServerUrl.defaultPlayer}/api/v1/videos/stream/${encodeURIComponent(videoId)}`;
     setPosterLink(posterUrl);
     setVideoLink(videoUrl);
   }, [videoName, videoId]);

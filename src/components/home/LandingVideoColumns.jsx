@@ -6,6 +6,7 @@ import HomeFooter from '../Footer/HomeFooter'
 import bgImage from "../../assets/bg.png"
 import { RxReload } from "react-icons/rx";
 import axios from 'axios';
+import { defaultServerUrl } from '../../data/servers';
 
 export default function VideoColumns() {
   const [videos, setVideos] = useState([]);
@@ -15,7 +16,7 @@ export default function VideoColumns() {
   useEffect(() => {
     async function fetchVideos() {
       try {
-        const response = await axios.get('https://api-anfilms.onrender.com/api/v1/videos/latest-files');
+        const response = await axios.get(`${defaultServerUrl.activities}/api/v1/videos/latest-files`);
         setVideos(response.data);
         setTimeout(() => {
           setLoader(false);

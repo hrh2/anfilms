@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { HashLoader } from "react-spinners";
 import Alert from '@mui/material/Alert';
+import { defaultServerUrl, streamServerUrl} from '../../data/servers';
+
 
 const MusicRate = () => {
   const [music, setMusic] = useState([]);
@@ -13,7 +15,7 @@ const MusicRate = () => {
       try {
         const token = localStorage.getItem("anfilms_admin_token");
         axios.defaults.headers.common.Authorization = `Bearer ${token}`
-        const response = await axios.get('https://api-anfilms.onrender.com/api/v1/videos/music-files');
+        const response = await axios.get(`${defaultServerUrl.activities}/api/v1/videos/music-files`);
         setMusic(response.data);
         setTimeout(() => {
           setLoader(false);
@@ -60,7 +62,7 @@ const MusicRate = () => {
                     <div className="grid-item" key={musicItem.id}>
                       <div className="grid-item-l">
                         <div className="w-[3rem] rounded-md img-fit-cover">
-                          <img src={`https://api-anfilms.onrender.com/api/v1/videos/poster/${encodeURIComponent(musicItem.name)}`} alt={musicItem.name} />
+                          <img src={`${streamServerUrl.image}/api/v1/videos/poster/${encodeURIComponent(musicItem.name)}`} alt={musicItem.name} />
                         </div>
                         <p className="text">{musicItem.name} <span>{musicItem.vidtype}</span></p>
                       </div>

@@ -4,6 +4,7 @@ import ContentTop from '../../components/ContentTop/ContentTop';
 import { Outlet } from 'react-router-dom';
 import axios from 'axios';
 import { HashLoader } from "react-spinners";
+import { defaultServerUrl } from '../../data/servers';
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
       try {
         const token = localStorage.getItem("anfilms_admin_token");
         axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-        const response = await axios.get('https://api-anfilms.onrender.com/api/v1/admin');
+        const response = await axios.get(`${defaultServerUrl.accountActivities}/api/v1/admin`);
         setAdmin(response.data);
         setTimeout(() => {
           setLoader(false);

@@ -4,6 +4,7 @@ import Alert from '@mui/material/Alert';
 import React, { useState } from "react";
 import Axios from 'axios';
 import { HashLoader } from "react-spinners";
+import { defaultServerUrl } from "../../data/servers";
 
 export default function Login() {
     
@@ -28,7 +29,7 @@ export default function Login() {
         event.preventDefault();
         setLoader(true);
         try {
-            const response = await Axios.post('https://api-anfilms.onrender.com/api/v1/signup', data);
+            const response = await Axios.post(`${defaultServerUrl.authentication}/api/v1/signup`, data);
             const token = response.data.token;
             setInfo(response.data.message);
             localStorage.setItem('anfilms_client_token', token);

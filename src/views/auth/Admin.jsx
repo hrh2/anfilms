@@ -5,6 +5,7 @@ import { HashLoader } from "react-spinners";
 import { RiShieldUserFill } from "react-icons/ri";
 import { MdOutlineKey } from "react-icons/md";
 import bgImage from "../../assets/bg.png"
+import { defaultServerUrl } from "../../data/servers";
 
 
 
@@ -25,7 +26,7 @@ export default function Admin() {
         event.preventDefault(); // prevent the default form submission behavior
         setLoader(true);
         try {
-             const response = await Axios.post('https://api-anfilms.onrender.com/api/v1/login/admin', data);
+             const response = await Axios.post(`${defaultServerUrl.authentication}/api/v1/login/admin`, data);
              const token = response.data.token;
              localStorage.setItem('anfilms_admin_token', token);
              localStorage.setItem('anfilms_client_token', token);

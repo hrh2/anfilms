@@ -6,6 +6,7 @@ import Footer from '../../components/Footer/HomeFooter'
 import bgImage from "../../assets/bg.png"
 import axios from 'axios';
 import { HashLoader } from "react-spinners";
+import { defaultServerUrl } from '../../data/servers';
 
 
 function App() {
@@ -21,10 +22,10 @@ function App() {
         let url;
         if(token2){
           token =token2
-          url ='https://api-anfilms.onrender.com/api/v1/admin'
+          url =`${defaultServerUrl.accountActivities}/api/v1/admin`
         }else{
           token =token1
-          url ='https://api-anfilms.onrender.com/api/v1/user'
+          url =`${defaultServerUrl.accountActivities}/api/v1/user`
         }
         axios.defaults.headers.common.Authorization = `Bearer ${token}`;
         const response = await axios.get(url);

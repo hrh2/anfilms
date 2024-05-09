@@ -4,6 +4,8 @@ import { HashLoader } from "react-spinners";
 import {Alert,IconButton} from '@mui/material';
 import { RxReload } from "react-icons/rx";
 import axios from 'axios';
+import { defaultServerUrl} from '../../data/servers';
+
 
 export default function MovieTypeColumns() {
   const [videos, setVideos] = useState([]);
@@ -15,7 +17,7 @@ export default function MovieTypeColumns() {
       try {
         const token = localStorage.getItem("anfilms_client_token");
         axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-        const response = await axios.get('https://api-anfilms.onrender.com/api/v1/videos/movie-files');
+        const response = await axios.get(`${defaultServerUrl.activities}/api/v1/videos/movie-files`);
         setVideos(response.data);
         setTimeout(() => {
           setLoader(false);

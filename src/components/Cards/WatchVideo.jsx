@@ -6,6 +6,7 @@ import { Poster } from '@vidstack/react';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 import { Typography } from '@mui/material';
+import { streamServerUrl } from '../../data/servers';
 export default function WatchVideo() {
     const [posterLink, setPosterLink] = useState('');
     const [videoLink, setVideoLink] = useState('');
@@ -38,8 +39,8 @@ export default function WatchVideo() {
       async function fetchPoster() {
         try {
           // Construct the poster link similar to HTML
-          const posterUrl = `https://api-anfilms.onrender.com/api/v1/videos/poster/${encodeURIComponent(name)}`;
-          const videoUrl = `https://api-anfilms.onrender.com/api/v1/videos/stream/${encodeURIComponent(id)}`;
+          const posterUrl = `${streamServerUrl.image}/api/v1/videos/poster/${encodeURIComponent(name)}`;
+          const videoUrl = `${streamServerUrl.watching}/api/v1/videos/stream/${encodeURIComponent(id)}`;
           setPosterLink(posterUrl);
           setVideoLink(videoUrl);
         } catch (error) {

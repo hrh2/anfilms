@@ -1,11 +1,11 @@
 import { Box, Button, colors, Typography} from "@mui/material";
-import {Checkbox} from "@material-tailwind/react";
- 
+import {Checkbox} from "@material-tailwind/react"
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import Alert from '@mui/material/Alert';
 import React,{useState} from "react";
 import Axios from 'axios';
 import { HashLoader } from "react-spinners";
+import { defaultServerUrl } from "../../data/servers";
 
 export default function Login() {
     
@@ -25,7 +25,7 @@ export default function Login() {
         event.preventDefault(); // prevent the default form submission behavior
         setLoader(true);
         try {
-             const response = await Axios.post('https://api-anfilms.onrender.com/api/v1/login', data);
+             const response = await Axios.post(`${defaultServerUrl.authentication}/api/v1/login`, data);
              const token = response.data.token;
              localStorage.setItem('anfilms_client_token', token);
             setTimeout(()=>{

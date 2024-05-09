@@ -5,6 +5,7 @@ import axios from 'axios';
 import { HashLoader } from "react-spinners";
 import Alert from '@mui/material/Alert';
 import { personsImgs } from '../../hooks/images';
+import { defaultServerUrl } from '../../data/servers';
 
 
 
@@ -21,10 +22,10 @@ const Account = () => {
         let url;
         if(token2){
           token =token2
-          url ='https://api-anfilms.onrender.com/api/v1/admin'
+          url =`${defaultServerUrl.authentication}/api/v1/admin`
         }else{
           token =token1
-          url ='https://api-anfilms.onrender.com/api/v1/user'
+          url =`${defaultServerUrl.authentication}/api/v1/user`
         }
         axios.defaults.headers.common.Authorization = `Bearer ${token}`;
         const response = await axios.get(url);
