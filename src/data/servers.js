@@ -13,3 +13,4 @@ export const defaultServerUrl ={
 }
 
 export const admin ={}
+

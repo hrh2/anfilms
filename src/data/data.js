@@ -15,7 +15,7 @@ export const adminNavigationLinks = [
     { id: 2, title: 'Subscribers',link: '/admin/subs', icon : <FaUsersRectangle size={30}/>},
     { id: 3, title: 'Videos',link: '/admin/videos', icon : <MdVideoLibrary size={30}/> },
     { id: 4, title: 'Music',link: '/admin/musics', icon : <MdLibraryMusic size={30}/> },
-    { id: 5, title: 'Upload',link: '/admin/upload', icon : <MdOutlineDriveFolderUpload size={30}/>},
+    { id: 5334, title: 'Upload',link: '/admin/upload', icon : <MdOutlineDriveFolderUpload size={30}/>},
     { id: 5, title: 'Requests',link: '/admin/request', icon : <MdOutlineMessage   size={30}/>},
     { id: 9, title: 'Account',link: '/admin/account', icon : <MdManageAccounts size={30}/>},
     { id: 10, title: 'Settings',link: '/admin/settings', icon : <MdSettings size={30}/>}
@@ -128,7 +128,7 @@ export const subscriptions = [
         amount: 0.00
     },
     {
-        id: 25,
+        id: 252,
         title: "On Music",
         due_date: "23/12/10",
         amount: 0.00

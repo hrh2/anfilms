@@ -42,13 +42,13 @@ export default function Features() {
             <div className="w-full">
             <div className=" flex gap-4">
               <div className="shrink-0">
-                <div className="rounded-md bg-[hsl(204,30%,20%)] p-4 shadow-lg !bg-[hsl(204,23%,30%)] !text-white">
+                <div className="rounded-md p-4 shadow-lg !bg-[hsl(204,23%,30%)] !text-white">
                   {feature.icon}
                 </div>
               </div>
               <div className="ml-4 grow !text-white">
                 <p className="mb-1 font-bold">{feature.title}</p>
-                <p className="text-gray-500 !text-gray-300">
+                <p className=" !text-gray-300">
                   {feature.description}
                 </p>
               </div>
