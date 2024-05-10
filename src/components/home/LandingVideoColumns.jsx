@@ -46,8 +46,8 @@ export default function VideoColumns() {
       overflowX: 'hidden',
       overflowY:'scroll'
     }}
-    className=' absolute !w-full md:top-[40vh]  top-[42vh]'>
-    <Box className = {`relative ${loader?'flex justify-center align-middle pt-[4rem]':'grid  md:grid-cols-4 sm:grid-cols-3 grid-cols-1 gap-8'}  !min-h-[50vh]  md:p-[2rem] p-[1.2rem] bg-transparent`}>
+    className=' absolute !w-full md:top-[40vh]  top-[40vh]'>
+    <Box className = {`relative ${loader?'flex justify-center align-middle pt-[4rem]':'grid  md:grid-cols-4 sm:grid-cols-3 grid-cols-1 gap-8'}  !min-h-[50vh]  md:p-[2rem] p-[1.2rem] !pt-[4rem] !pb-[0px] bg-transparent`}>
     {(error || videos.length === 0) && (
         <div className="flex justify-center items-center w-full h-full">
           <div>

@@ -9,6 +9,7 @@ import bgvideo2 from '../../assets/Home4.mp4';
 import bgvideo3 from '../../assets/Home3.mp4';
 import Logo from "../../assets/anfilms.png"
 import { Link } from 'react-router-dom';
+import Logo1 from "../Logos/Logo1";
 
 export default function HomebgFrame() {
   const videoRef = useRef(null);
@@ -34,14 +35,14 @@ export default function HomebgFrame() {
   }, []); // Run once on component mount
 
   return (
-    <div className="md:w-full sm:w-full max-w-full md:h-[55vh] h-[55vh] bg-transparent absolute top-[0] bg-cover bg-center bg-no-repeat flex justify-center align-middle duration-[1s] !z-10 overflow-hidden">
-      <Box className="md:w-full sm:w-full w-[200vw] px-4 md:pt-[1.7rem] pt-[8rem] md:h-[60vh] h-[57vh] absolute top-0 left-0 bg-gradient-to-r from-[#000000] md:via-[#000000e4] sm:via-[#000000e4]  to-gray-900/30 z-40 duration-[2s] overflow-hidden">
-          <div className="md:w-[15rem] !w-[60%] md:!static md:visible invisible absolute left-0 top-0 aspect-square" >
-            <img src={Logo} alt="logo" />
+    <div className="md:w-full sm:w-full max-w-full md:h-[55vh] h-[50vh] bg-gradient-to-b from-[#000000] md:via-[#000000e4] sm:via-[#00000000] absolute top-[0] bg-cover bg-center bg-no-repeat flex justify-center align-middle duration-[1s] !z-10 overflow-hidden">
+      <Box className="md:w-full sm:w-full w-[200vw] px-4 md:pt-[1.7rem] pt-[8rem] md:h-[60vh] h-[50vh]  absolute top-0 left-0 bg-gradient-to-r from-[#000000] md:via-[#000000e4] sm:via-[#000000e4]  to-gray-900/30 z-40 duration-[2s] overflow-hidden">
+          <div className="md:w-[15rem]  md:!static md:visible invisible absolute left-0 top-0 aspect-square" >
+              <Logo1 styless={`w-[20rem]`} image={Logo} />
           </div>
           <div className='absolute md:top-[10rem] md:left-[35vw]  font-bold left-[8%] !text-white grid grid-cols-1 md:gap-6  gap-4'>
               <Typography variant='h4' fontWeight={600}>
-                  Welcome to <i><Link className='text-green-600 md:text-2xl' to='/' >an-films</Link></i>
+                  Welcome to <i><Link className='text-green-600 md:text-2xl' to='/checkout/overview' >reba-vid</Link></i>
               </Typography>
               <Typography variant='h3' className='pl-[3rem]' fontWeight={900}>
                   Download Unlimited<br/>
@@ -50,7 +51,7 @@ export default function HomebgFrame() {
               </Typography>
               <Typography variant='h7'>
                  Enjoy Exclusive Music Video and Live shows<br/>
-                 Subscribe <Link className='text-green-600 text-xl' to='/' >an-films</Link> now
+                 Subscribe <Link className='text-green-600 text-xl' to='/' >reba-vid</Link> now
               </Typography>
           </div>
       </Box>

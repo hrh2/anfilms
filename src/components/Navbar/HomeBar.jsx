@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     
 
-<nav className="border-gray-200 bg-[#1d1a1ac4] z-40 absolute top-0 left-0 !w-[100vw] ">
+<nav className="border-gray-200 bg-[#000c4] z-40 absolute top-0 left-0 !w-[100vw] ">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
   <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
       <img src={anfilms} className="h-[4rem]" alt="Flowbite Logo" />

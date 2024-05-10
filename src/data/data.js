@@ -13,20 +13,20 @@ import { MdOutlineMessage } from "react-icons/md";
 export const adminNavigationLinks = [
     { id: 1, title: 'Dashboard',link: '/admin', icon : < MdSpaceDashboard size={30}/> },
     { id: 2, title: 'Subscribers',link: '/admin/subs', icon : <FaUsersRectangle size={30}/>},
-    { id: 3, title: 'Videos',link: '/admin/videos', icon : <MdVideoLibrary size={30}/> },
-    { id: 4, title: 'Music',link: '/admin/musics', icon : <MdLibraryMusic size={30}/> },
-    { id: 5334, title: 'Upload',link: '/admin/upload', icon : <MdOutlineDriveFolderUpload size={30}/>},
-    { id: 5, title: 'Requests',link: '/admin/request', icon : <MdOutlineMessage   size={30}/>},
+    { id: 3, title: 'Videos',link: '/admin/Videos', icon : <MdVideoLibrary size={30}/> },
+    { id: 4, title: 'Music',link: '/admin/Musics', icon : <MdLibraryMusic size={30}/> },
+    { id: 5, title: 'Upload',link: '/admin/upload', icon : <MdOutlineDriveFolderUpload size={30}/>},
+    { id: 6, title: 'Requests',link: '/admin/request', icon : <MdOutlineMessage   size={30}/>},
     { id: 9, title: 'Account',link: '/admin/account', icon : <MdManageAccounts size={30}/>},
     { id: 10, title: 'Settings',link: '/admin/settings', icon : <MdSettings size={30}/>}
 ];
 
 export const homeNavigationLinks = [
     { id: 783, title: 'Home', link: '/', icon : <HiHomeModern size={25}/> },
-    { id: 93, title: 'Videos',link: '/videos', icon : <MdVideoLibrary size={27}/> },
-    { id: 272, title: 'Movies',link: '/movies', icon : <MdLocalMovies   size={27}/> },
-    { id: 233, title: 'CGIs',link: '/cgi', icon : <GiAnimalHide  size={27}/> },
-    { id: 344, title: 'Music',link: '/musics', icon : <MdLibraryMusic size={27}/> },
+    { id: 93, title: 'Videos',link: '/videos/Video', icon : <MdVideoLibrary size={27}/> },
+    { id: 272, title: 'Movies',link: '/videos/Movie', icon : <MdLocalMovies   size={27}/> },
+    { id: 233, title: 'CGIs',link: '/videos/CGI', icon : <GiAnimalHide  size={27}/> },
+    { id: 344, title: 'Music',link: '/videos/Music', icon : <MdLibraryMusic size={27}/> },
     { id: 455, title: 'Account',link: '/account', icon : <MdManageAccounts size={27}/>},
 ];
 

@@ -16,11 +16,7 @@ import MainLanding from './services/home/MainLanding';
 import Home from './services/home/Home';
 import MainHome from './views/home/MainHome'
 import WatchVideo from './components/Cards/WatchVideo';
-import Musics from './views/home/Musics'
 import Videos from './views/home/Videos'
-import CGI from './views/home/CGI'
-import Movies from './views/home/Movies'
-// import Account from './views/home/'
 
 // Other Routes
 import MainOthers from './services/others/MainOthers'
@@ -59,17 +55,14 @@ function App() {
   const redirectToLoginAsAdmin = () => <Navigate to="/auth/admin" />;
 
   return (
+      <div>
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
           <Routes>
             <Route path="/landing" element={<MainLanding/>} />
             <Route path="/" exact element={isLocalUser()?<Home />:redirectToLanding()} >
               <Route path="/" element={<MainHome/>} />
-              <Route path="/videos" element={<Videos/>} />
-              <Route path="/musics" element={<Musics/>} />
-              <Route path="/account" element={<Account/>} />
-              <Route path="/movies" element={<Movies/>} />
-              <Route path="/cgi" element={<CGI/>} />
+              <Route path="/videos/:videoType" element={<Videos/>} />
               <Route path="/watch" element={<WatchVideo/>} />
             </Route>
             <Route path='/checkout' exact element={<MainOthers/>}>
@@ -99,6 +92,7 @@ function App() {
           </Routes>
         </ThemeProvider>
     </ColorModeContext.Provider>
+        </div>
   );
 }
 

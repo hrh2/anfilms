@@ -53,9 +53,9 @@ export default function Video({ videoId, videoName, vidtype }) {
     }
   };
   return (
-    <Link to={url} className='!text-white'>
+    <Link to={url} className="flex items-center align-middle justify-center">
     <div
-      className="hover:scale-110 boxshadow-green md:h-[300px] h-[250px] bg-black relative bg-cover bg-center bg-no-repeat flex justify-center align-middle z-30 duration-[1s] rounded-xl"
+      className="hover:scale-110 boxshadow-green md:h-[300px] min-h-[250px] bg-black relative bg-cover bg-center bg-no-repeat flex justify-center align-middle z-30 duration-[1s] rounded-xl"
       onMouseEnter={handleHover}
       onMouseLeave={handleMouseLeave}
     >

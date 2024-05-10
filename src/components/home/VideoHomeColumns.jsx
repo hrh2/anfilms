@@ -7,7 +7,7 @@ import axios from 'axios';
 import { defaultServerUrl} from '../../data/servers';
 
 export default function VideoColumns() {
-  const [videos, setVideos] = useState([]);
+  const [videos, setVideos] = useState([1]);
   const [error, setError] = useState('');
   const [loader, setLoader] = useState(true); // Start with loader shown initially
 
@@ -16,9 +16,9 @@ export default function VideoColumns() {
       try {
         const token = localStorage.getItem("anfilms_client_token");
         axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-        const response = await axios.get(`${defaultServerUrl.activities}/api/v1/videos/files`);
-        setVideos(response.data);
+        const response = await axios.get(`${defaultServerUrl.activities}/api/v1/videos/files`)
         setTimeout(() => {
+          setVideos(response.data);
           setLoader(false);
         }, 2000);
       } catch (error) {
@@ -40,7 +40,7 @@ export default function VideoColumns() {
 
   return (
     <div className='min-h-[50vh] grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:p-6 py-4 px-8 gap-9'>
-      {(error || videos.length === 0) && (
+      {(error||videos.length === 0) && (
         <div className="flex justify-center items-center w-full h-full">
           <div className=''>
           <Alert severity="error">{error || 'No videos available.'}</Alert>

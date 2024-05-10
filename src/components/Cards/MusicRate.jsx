@@ -15,7 +15,7 @@ const MusicRate = () => {
       try {
         const token = localStorage.getItem("anfilms_admin_token");
         axios.defaults.headers.common.Authorization = `Bearer ${token}`
-        const response = await axios.get(`${defaultServerUrl.activities}/api/v1/videos/music-files`);
+        const response = await axios.get(`${defaultServerUrl.activities}/api/v1/videos/admin/Music`);
         setMusic(response.data);
         setTimeout(() => {
           setLoader(false);

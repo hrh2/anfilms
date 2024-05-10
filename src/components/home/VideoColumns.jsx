@@ -4,11 +4,10 @@ import { HashLoader } from "react-spinners";
 import {Alert,IconButton} from '@mui/material';
 import { RxReload } from "react-icons/rx";
 import axios from 'axios';
-import { defaultServerUrl} from '../../data/servers';
+import { defaultServerUrl } from '../../data/servers';
 
-
-export default function MovieTypeColumns() {
-  const [videos, setVideos] = useState([]);
+export default function VideoColumns({type}) {
+  const [videos, setVideos] = useState([1]);
   const [error, setError] = useState('');
   const [loader, setLoader] = useState(true); // Start with loader shown initially
 
@@ -17,9 +16,9 @@ export default function MovieTypeColumns() {
       try {
         const token = localStorage.getItem("anfilms_client_token");
         axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-        const response = await axios.get(`${defaultServerUrl.activities}/api/v1/videos/movie-files`);
-        setVideos(response.data);
+        const response = await axios.get(`${defaultServerUrl.activities}/api/v1/videos/type/${type}`);
         setTimeout(() => {
+          setVideos(response.data);
           setLoader(false);
         }, 2000);
       } catch (error) {
@@ -31,7 +30,7 @@ export default function MovieTypeColumns() {
     }
 
     fetchVideos();
-  }, []);
+  }, [type]);
 
   const reloadPage = () => {
     setVideos([]);
@@ -44,7 +43,7 @@ export default function MovieTypeColumns() {
       {(error || videos.length === 0) && (
         <div className="flex justify-center items-center w-full h-full">
           <div className=''>
-          <Alert severity="error">{error || 'No movie is available currently.'}</Alert>
+          <Alert severity="error">{error || `No ${type} videos available.  Try again`}</Alert>
           <IconButton onClick={reloadPage} variant="contained" className="btn-reload">
             <RxReload size={30} />
           </IconButton>

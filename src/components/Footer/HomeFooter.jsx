@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 const LINKS = [
   {
     title: "Product",
-  items: [["Overview","checkout/overview"], ["Features","checkout/features"], ["Videos","videos"],["Movies","movies"],["Musics","musics"],["CGI","cgi"]]
+  items: [["Overview","checkout/overview"], ["Features","checkout/features"], ["Videos","videos/Video"],["Movies","videos/Movie"],["Musics","videos/Music"],["CGI","videos/CGI"]]
   },
   {
     title: "Company",
@@ -33,7 +33,7 @@ export default function Footer() {
           </Link>
           <div className="grid grid-cols-3 justify-between gap-4">
             {LINKS.map(({ title, items }) => (
-              <ul key={title}>
+              <ul key={title+20}>
                 <Typography
                   variant="h5"
                   fontWeight={800}
@@ -43,7 +43,7 @@ export default function Footer() {
                 </Typography>
                 {items.map((link) => (
                   <Link to={`/${link[1]}`}>
-                      <li key={link}>
+                      <li key={link+10}>
                         <Typography
                           className="py-1.5  !text-[#fff] font-normal transition-colors hover:!text-blue-gray-900"
                         >
@@ -61,7 +61,7 @@ export default function Footer() {
             variant="small"
             className="mb-4 text-center font-normal text-[#fff] md:mb-0"
           >
-            &copy; {currentYear} <Link to="/">an-films</Link>. All
+            &copy; {currentYear} <Link to="/">reba-vid</Link>. All
             Rights Reserved.
           </Typography>
           <div className="flex gap-4 text-[#fff] sm:justify-center">
