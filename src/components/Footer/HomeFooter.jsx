@@ -33,7 +33,7 @@ export default function Footer() {
           </Link>
           <div className="grid grid-cols-3 justify-between gap-4">
             {LINKS.map(({ title, items }) => (
-              <ul key={title+20}>
+              <ul key={title+2045}>
                 <Typography
                   variant="h5"
                   fontWeight={800}
@@ -42,8 +42,8 @@ export default function Footer() {
                   {title}
                 </Typography>
                 {items.map((link) => (
-                  <Link to={`/${link[1]}`}>
-                      <li key={link+10}>
+                  <Link key={link+130} to={`/${link[1]}`}>
+                      <li >
                         <Typography
                           className="py-1.5  !text-[#fff] font-normal transition-colors hover:!text-blue-gray-900"
                         >

@@ -3,10 +3,21 @@ import { MdLibraryMusic,MdOutlineDriveFolderUpload,MdManageAccounts,MdSettings,M
 import { MdLocalMovies } from "react-icons/md";
 import { GiAnimalHide } from "react-icons/gi";
 // eslint-disable-next-line
-import { FaUserLock, FaFilm, FaPlayCircle, FaThumbsUp, FaMobileAlt, FaCreditCard, FaList, FaShareAlt, FaDownload, FaClosedCaptioning } from 'react-icons/fa';
+import {
+    FaUserLock,
+    FaFilm,
+    FaPlayCircle,
+    FaThumbsUp,
+    FaMobileAlt,
+    FaList,
+    FaShareAlt,
+    FaDownload,
+    FaUserAlt, FaBriefcase, FaLaptop, FaClipboardCheck, FaMoneyBillAlt
+} from 'react-icons/fa';
 import { HiHomeModern } from "react-icons/hi2";
 import { FaUsersRectangle } from "react-icons/fa6";
 import { MdOutlineMessage } from "react-icons/md";
+import React from "react";
 
 
 
@@ -177,91 +188,35 @@ export const overview=[
     {
         id:31,
         title:"Movies",
-        link:"movies",
+        link:"videos/Movie",
         image:"https://mdbcdn.b-cdn.net/img/new/standard/city/041.jpg"
     },{
         id:31,
         title:"Trailers",
-        link:"videos",
+        link:"videos/Video",
         image:"https://mdbcdn.b-cdn.net/img/new/standard/city/044.jpg"
     },{
         id:31,
         title:"Music",
-        link:"musics",
+        link:"videos/Music",
         image:"https://mdbcdn.b-cdn.net/img/new/standard/city/061.jpg"
     },{
         id:31,
         title:"VFX",
-        link:"vfx",
+        link:"videos/VFX",
         image:"https://mdbcdn.b-cdn.net/img/new/standard/city/043.jpg"
     },{
         id:31,
         title:"Commeds",
-        link:"videos",
+        link:"videos/Commeds",
         image:"https://mdbcdn.b-cdn.net/img/new/standard/city/048.jpg"
     },{
         id:31,
         title:"CGI",
-        link:"cgi",
+        link:"videos/CGI",
         image:"https://mdbcdn.b-cdn.net/img/new/standard/city/051.jpg"
     },
 ]
-
-export const teamates = [
-    {
-      id: 52,
-      name: "Team Alpha",
-      image: "https://mdbcdn.b-cdn.net/img/new/avatars/15.jpg",
-      title: "Founder & CEO",
-      social: {
-        linkedin: "https://www.linkedin.com/company/example-alpha",
-        twitter: "https://twitter.com/example_alpha",
-        instagram: "https://www.instagram.com/example_alpha"
-      },
-      svg: <svg className="absolute text-gray-700 left-0 bottom-0" xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1440 320">
-      <path fill="currentColor"
-        d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-      </path>
-    </svg>
-    },
-    {
-      id: 53,
-      name: "Team Beta",
-      image: "https://mdbcdn.b-cdn.net/img/new/avatars/8.jpg",
-      title: "CTO",
-      social: {
-        linkedin: "https://www.linkedin.com/company/example-beta",
-        twitter: "https://twitter.com/example_beta",
-        instagram: "https://www.instagram.com/example_beta"
-      },
-      svg: <svg className="absolute text-gray-700  left-0 bottom-0" xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1440 320">
-      <path fill="currentColor"
-        d="M0,96L48,128C96,160,192,224,288,240C384,256,480,224,576,213.3C672,203,768,213,864,202.7C960,192,1056,160,1152,128C1248,96,1344,64,1392,48L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-      </path>
-    </svg>
-    },
-    {
-      id: 54,
-      name: "Team Gamma",
-      image: "https://mdbcdn.b-cdn.net/img/new/avatars/14.jpg",
-      title: "Head of Marketing",
-      social: {
-        linkedin: "https://www.linkedin.com/company/example-gamma",
-        twitter: "https://twitter.com/example_gamma",
-        instagram: "https://www.instagram.com/example_gamma"
-      },
-      svg: <svg className="absolute text-gray-700 left-0 bottom-0" xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1440 320">
-      <path fill="currentColor"
-        d="M0,288L48,256C96,224,192,160,288,160C384,160,480,224,576,213.3C672,203,768,117,864,85.3C960,53,1056,75,1152,69.3C1248,64,1344,32,1392,16L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-      </path>
-    </svg>
-    }
-  ];
-  
-  
 
 export const features = [
     {
@@ -361,4 +316,135 @@ export const contactus=[
   <path stroke-linecap="round" stroke-linejoin="round" d="M12 12.75c1.148 0 2.278.08 3.383.237 1.037.146 1.866.966 1.866 2.013 0 3.728-2.35 6.75-5.25 6.75S6.75 18.728 6.75 15c0-1.046.83-1.867 1.866-2.013A24.204 24.204 0 0112 12.75zm0 0c2.883 0 5.647.508 8.207 1.44a23.91 23.91 0 01-1.152 6.06M12 12.75c-2.883 0-5.647.508-8.208 1.44.125 2.104.52 4.136 1.153 6.06M12 12.75a2.25 2.25 0 002.248-2.354M12 12.75a2.25 2.25 0 01-2.248-2.354M12 8.25c.995 0 1.971-.08 2.922-.236.403-.066.74-.358.795-.762a3.778 3.778 0 00-.399-2.25M12 8.25c-.995 0-1.97-.08-2.922-.236-.402-.066-.74-.358-.795-.762a3.734 3.734 0 01.4-2.253M12 8.25a2.25 2.25 0 00-2.248 2.146M12 8.25a2.25 2.25 0 012.248 2.146M8.683 5a6.032 6.032 0 01-1.155-1.002c.07-.63.27-1.222.574-1.747m.581 2.749A3.75 3.75 0 0115.318 5m0 0c.427-.283.815-.62 1.155-.999a4.471 4.471 0 00-.575-1.752M4.921 6a24.048 24.048 0 00-.392 3.314c1.668.546 3.416.914 5.223 1.082M19.08 6c.205 1.08.337 2.187.392 3.314a23.882 23.882 0 01-5.223 1.082" />
 </svg>
   },
-]  
+]
+
+export const team = [
+    {
+        position: "Chief Executive Officer (CEO)",
+        name: "HIRWA RUKUNDO Hope",
+        title:"CEO",
+        responsibilities: [
+            "Provide strategic leadership and direction for Rebavid, setting long-term goals and objectives.",
+            "Oversee the overall operations and performance of the company, ensuring alignment with the mission and vision.",
+            "Represent Rebavid in external engagements, including partnerships, investor relations, and industry events.",
+            "Lead the executive team, fostering a culture of innovation, collaboration, and accountability."
+        ],
+        icon: <FaUserAlt className="inline-block mr-2" />,
+        image:personsImgs.hope_one,
+        social: {
+            linkedin: "https://www.linkedin.com/in/hirwa-rukundo-hope-114153265/",
+            twitter: "#!",
+            instagram: "https://www.instagram.com/__.hirwa.__2/",
+            portfolio:"https://hirwarukundohope.onrender.com"
+        },
+        svg: <svg className="absolute text-gray-700 left-0 bottom-0" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1440 320">
+            <path fill="currentColor"
+                  d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+    },
+    {
+        position: "Chief Operating Officer (COO)",
+        name: "MANZI PRINCE",
+        title:"COO",
+        responsibilities: [
+            "Manage day-to-day operations and ensure efficient execution of business strategies.",
+            "Oversee content acquisition, licensing agreements, and production initiatives.",
+            "Coordinate with technology teams to maintain and enhance the platform's performance and user experience.",
+            "Streamline internal processes and workflows to optimize productivity and resource allocation."
+        ],
+        icon: <FaBriefcase className="inline-block mr-2" />,
+        image: personsImgs.prince_one,
+        social: {
+            linkedin: "#!",
+            twitter: "#!",
+            instagram: "https://www.instagram.com/prince_manzi1",
+            portfolio:"https://manzichriss.netlify.app/"
+        },
+        svg: <svg className="absolute text-gray-700  left-0 bottom-0" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1440 320">
+            <path fill="currentColor"
+                  d="M0,96L48,128C96,160,192,224,288,240C384,256,480,224,576,213.3C672,203,768,213,864,202.7C960,192,1056,160,1152,128C1248,96,1344,64,1392,48L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+    }
+    ,
+    {
+        position: "Chief Technology Officer (CTO)",
+        name: "Mbabazi Louange Liza",
+        title:"CTO",
+        responsibilities: [
+            "Lead the development and implementation of Rebavid's technology strategy, including platform architecture, infrastructure, and security.",
+            "Oversee software development, quality assurance, and technical operations to deliver a seamless and reliable user experience.",
+            "Drive innovation and continuous improvement initiatives to stay ahead of technological advancements and industry trends.",
+            "Collaborate with cross-functional teams to prioritize product features and enhancements based on user feedback and market demand."
+        ],
+        image: personsImgs.liza_one,
+        social: {
+            linkedin: "https://www.linkedin.com/in/mbabazi-louange-liza-6272a5261/",
+            twitter: "#!",
+            instagram: "https://www.instagram.com/__lis_a.a.h/",
+            portfolio:"https://mportfolio-yttf.onrender.com"
+        },
+        svg: <svg className="absolute text-gray-700 left-0 bottom-0" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1440 320">
+            <path fill="currentColor"
+                  d="M0,288L48,256C96,224,192,160,288,160C384,160,480,224,576,213.3C672,203,768,117,864,85.3C960,53,1056,75,1152,69.3C1248,64,1344,32,1392,16L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>,
+        icon: <FaLaptop className="inline-block mr-2" />
+    },
+    {
+        position: "Chief Marketing Officer (CMO)",
+        name: "",
+        title:"CMO",
+        responsibilities: [
+            "Develop and implement comprehensive marketing strategies to drive user acquisition, engagement, and retention.",
+            "Lead brand development efforts, positioning Rebavid as a leading destination for Rwandan entertainment.",
+            "Manage advertising campaigns, social media presence, and public relations activities to enhance brand visibility and awareness.",
+            "Analyze market trends and user feedback to inform product development and content curation decisions."
+        ],
+        icon: <FaClipboardCheck className="inline-block mr-2" />,
+        image: "",
+        social: {
+            linkedin: "#!",
+            twitter: "#!",
+            instagram: "#!",
+            portfolio:"#!"
+        },
+        svg: <svg className="absolute text-gray-700  left-0 bottom-0" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1440 320">
+            <path fill="currentColor"
+                  d="M0,96L48,128C96,160,192,224,288,240C384,256,480,224,576,213.3C672,203,768,213,864,202.7C960,192,1056,160,1152,128C1248,96,1344,64,1392,48L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+    },
+    {
+        position: "Chief Financial Officer (CFO)",
+        name: "",
+        title:"CFO",
+        responsibilities: [
+            "Oversee financial planning, budgeting, and forecasting processes to ensure the financial health and sustainability of Rebavid.",
+            "Manage financial reporting and analysis, providing insights to support strategic decision-making.",
+            "Monitor cash flow, revenue streams, and expense management to optimize profitability and efficiency.",
+            "Establish and maintain relationships with investors, banks, and financial institutions to secure funding and capital as needed."
+        ],
+        icon: <FaMoneyBillAlt className="inline-block mr-2" />,
+        image: "",
+        social: {
+            linkedin: "#!",
+            twitter: "#!",
+            instagram: "#!",
+            portfolio:"#!"
+        },
+        svg: <svg className="absolute text-gray-700  left-0 bottom-0" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1440 320">
+            <path fill="currentColor"
+                  d="M0,96L48,128C96,160,192,224,288,240C384,256,480,224,576,213.3C672,203,768,213,864,202.7C960,192,1056,160,1152,128C1248,96,1344,64,1392,48L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+    }
+];
+
+

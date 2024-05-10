@@ -22,12 +22,16 @@ import person_one from "../assets/images/person_one.jpg";
 import person_two from "../assets/images/person_two.jpg";
 import person_three from "../assets/images/person_three.jpg";
 import person_four from "../assets/images/person_four.jpg";
+import liza_one from "../assets/images/liza_one.jpg";
+import liza_two from "../assets/images/liza_two.jpg"
+import hope_one from "../assets/images/hope_one.png"
+import prince_one from "../assets/images/prince_one.jpg"
 
 export const iconsImgs = {
     alert, bell, bills, budget, card, check, empty_check, gears, home, menu, plane, plus, report, search, user, wallet, wealth
 }
 
 export const personsImgs = {
-    person_one, person_two, person_three, person_four
+    person_one, person_two, person_three, person_four,liza_one,liza_two,hope_one,prince_one
 };
 

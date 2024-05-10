@@ -1,17 +1,32 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {Typography} from "@mui/material";
 
 const availableLinks = [
-  { text: 'Home', href: '/' },
-  { text: 'Contact', href: '/checkout/contactus' },
-  { text: 'About Us', href: '/checkout/aboutus' },
-  { text: 'videos', href: '/videos' },
-  { text: 'music', href: '/musics' },
+  { text: 'Home', href: '/', description: "Navigate to the home page of the website." },
+  { text: 'Contact', href: '/checkout/contactus', description: "Redirect to the contact page for reaching out to the website's administrators or support team." },
+  { text: 'About Us', href: '/checkout/aboutus', description: "Provides information about the website or organization, including its mission, team, and history." },
+  { text: 'Videos', href: '/videos/Video', description: "Explore a collection of videos available on the website." },
+  { text: 'Music', href: '/videos/Music', description: "Access a selection of music content available on the website." },
+  { text: 'VFX', href: '/videos/VFX', description: "View videos featuring visual effects (VFX)." },
+  { text: 'Account', href: '/account', description: "View account details" },
+  { text: 'CGI', href: '/videos/CGI', description: "Explore videos showcasing computer-generated imagery (CGI)." },
+  { text: 'Trailers', href: '/videos/Trailer', description: "Watch trailers of upcoming movies, series, or projects." },
+  { text: 'Commeds', href: '/videos/Commed', description: "Access comedy videos or sketches available on the website." },
+  { text: 'Team', href: '/checkout/aboutus', description: "Learn about the team behind the website or organization." },
+  { text: 'Organization', href: '/checkout/aboutus', description: "Discover information about the organization behind the website, including its structure and objectives." },
+  { text: 'News', href: '/checkout/news', description: "Stay updated with the latest news and announcements related to the website or organization." },
+  { text: 'Help Center', href: '/checkout/contactus', description: "Access resources and support to address any issues or inquiries users may have." },
+  { text: 'Features', href: '/checkout/features', description: "Learn about the features and functionalities offered by the website or platform." },
 ];
+
 
 export default function OthersBar() {
   // State to store user input
   const [searchInput, setSearchInput] = useState('');
+  const handleNavigation=()=>{
+    setSearchInput('')
+  }
 
   // Function to filter links based on user input
   const filteredLinks = availableLinks.filter(link =>
@@ -44,10 +59,15 @@ export default function OthersBar() {
         </span>
       </div>
       {searchInput && (
-        <div className="absolute py-6 !h-[20vh] top-[13rem]  transform -translate-y-1/2  mx-auto md:w-[50%] sm:w-[80%] w-[90%] bg-[#000000b7] rounded-lg grid grid-cols-1 gap-4 z-30">
+        <div className="absolute py-6 !min-h-[10vh]  !max-h-[50vh] top-[18rem] overflow-y-scroll transform -translate-y-1/2  mx-auto md:w-[50%] sm:w-[80%] w-[90%] bg-[#000000b7] rounded-lg grid grid-cols-1 gap-4 z-30 px-4">
           {filteredLinks.map((link, index) => (
-            <Link key={index} to={link.href} className="text-blue-500 hover:underline px-4">
-              {link.text}
+            <Link key={index} onClick={handleNavigation} to={link.href} className="text-blue-600 hover:underline p-4 border-2 rounded-md ">
+              <Typography fontSize={20}>
+                {link.text}
+              </Typography>
+              <Typography fontSize={15} className="pl-4 text-blue-500">
+                {link.description}
+              </Typography>
             </Link>
           ))}
         </div>

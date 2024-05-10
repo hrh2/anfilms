@@ -37,6 +37,7 @@ import Upload from './views/Admin/Upload';
 import Account from './views/Admin/Account';  
 import Settings from './views/Admin/Settings';
 import AdminLogin from './views/auth/Admin';
+import LeadingTeam from './views/Admin/LeadingTeam';
 
 
 function App() {
@@ -64,6 +65,8 @@ function App() {
               <Route path="/" element={<MainHome/>} />
               <Route path="/videos/:videoType" element={<Videos/>} />
               <Route path="/watch" element={<WatchVideo/>} />
+              <Route path="/account" element={<Account/>} />
+
             </Route>
             <Route path='/checkout' exact element={<MainOthers/>}>
                 <Route path="/checkout/not-found" element={<NotFound/>} />
@@ -71,7 +74,7 @@ function App() {
                 <Route path="/checkout/overview" element={<Overview/>} />
                 <Route path="/checkout/aboutus" element={<AboutUs/>} />
                 <Route path="/checkout/contactus" element={<ContactUs/>} />
-                <Route path="/checkout/news" element={<News/>} />
+                <Route path="/checkout/new" element={<News/>} />
             </Route>
             <Route path="/admin" exact element={isAdmin()?<MainAdmin />:redirectToLoginAsAdmin()} >
               <Route path="/admin" element={<AdminDashboard/>} />
@@ -81,6 +84,7 @@ function App() {
               <Route path="/admin/request" element={<Request/>} />
               <Route path="/admin/upload" element={<Upload/>} />
               <Route path="/admin/account" element={<Account/>} />
+              <Route path="/admin/board" element={<LeadingTeam/>} />
               <Route path="/admin/settings" element={<Settings/>} />
             </Route>
             <Route path="/auth" exact element={<MainAuth />} >

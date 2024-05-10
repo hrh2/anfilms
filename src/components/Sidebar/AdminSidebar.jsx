@@ -52,7 +52,7 @@ const Sidebar = ({admin}) => {
               <button onClick={handleLogout} className="nav-item flex gap-4 hover:bg-[#20ff5493] font-extrabold fixed bottom-3 py-3 px-2 rounded-md !text-[#fff]">
                 {/* Add logout icon */}
                 <MdExitToApp size={20} color='#ff0000' />
-                <span className="nav-link-text !text-[#fff]">Logout</span>
+                <span className="nav-link-text !text-[#000]">Logout</span>
               </button>
             </li>
           </ul>

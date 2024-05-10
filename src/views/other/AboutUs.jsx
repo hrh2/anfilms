@@ -1,8 +1,8 @@
 import React from 'react'
-import {teamates} from '../../data/data'
+import {team} from '../../data/data'
 import { Link } from 'react-router-dom'
 import { FaInstagram } from 'react-icons/fa'
-
+import { MdOpenInBrowser } from "react-icons/md";
 export default function AboutUs() {
   return (
     <div>
@@ -12,21 +12,21 @@ export default function AboutUs() {
       Meet the <u className="text-green-600">Team</u>
     </h2>
 
-    <div className="grid gap-x-6 md:grid-cols-3 lg:gap-x-12">
-      {teamates.map((member)=>(
+    <div className="grid gap-x-6 md:grid-cols-3 lg:gap-x-12 gap-y-4">
+      {team.map((member)=>(
             <div className="mb-6 lg:mb-0" key={member.id}>
             <div
               className="block rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] !bg-gray-700">
               <div className="relative overflow-hidden bg-cover bg-no-repeat">
-                <img src={member.image} className="w-full rounded-t-lg" alt='' />
+                <img src={member.image} className="w-full max-h-[40vh] rounded-t-lg object-cover object-center" alt='' />
                 <Link to="#!">
                   <div className="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed"></div>
                 </Link>
                 {member.svg}
               </div>
-              <div className="p-6">
+              <div className="p-6 !bg-[#fff] rounded-b-lg">
                 <h5 className="mb-4 text-lg font-bold">{member.name}</h5>
-                <p className="mb-4  !text-gray-300">{member.title}</p>
+                <p className="mb-4  !text-gray-700">{member.title}</p>
                 <ul className="mx-auto flex list-inside justify-center">
                   <Link to={`${member.social.instagram}`}  className="px-2">
                       <FaInstagram/>
@@ -44,6 +44,9 @@ export default function AboutUs() {
                       <path fill="currentColor"
                         d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
                     </svg>
+                  </Link>
+                  <Link to={`${member.social.portfolio}`} className="px-2">
+                    <MdOpenInBrowser />
                   </Link>
                 </ul>
               </div>

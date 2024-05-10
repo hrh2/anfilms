@@ -22,7 +22,7 @@ export default function Profile({user}) {
           </div>
         </div>
         <div className="flex-auto p-4">
-          <p className="leading-normal text-sm">Hi, I’m Alec Thompson, Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality).</p>
+          {/*<p className="leading-normal text-sm">Hi, I’m Alec Thompson, Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality).</p>*/}
           <hr className="h-px my-6 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent"/>
           <ul className="flex flex-col pl-0 mb-0 rounded-lg">
             <li className="relative block px-4 py-2 pt-0 pl-0 leading-normal  border-0 rounded-t-lg text-sm text-inherit">
