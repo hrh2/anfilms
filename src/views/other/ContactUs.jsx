@@ -27,6 +27,8 @@ export default function ContactUs() {
   const handleSubmit = async (event) => {
     event.preventDefault(); // prevent the default form submission behavior
     setLoader(true);
+    setError('')
+    setSuccess('')
     try {
       const response = await Axios.post(`${defaultServerUrl.authentication}/api/v1/message/us`, data);
       const token = response.data.token;
