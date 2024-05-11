@@ -55,7 +55,7 @@ export default function WatchVideo() {
             <div className="bg-black  xl:w-[60vw] md:w-[60vw] w-[90%] bg-cover bg-center bg-no-repeat flex justify-center align-middle z-30  duration-[1s]">
                 <video
                     ref={videoRef}
-                    title={videoName}
+                    title={name}
                     src={videoLink}
                     type={mimeType}
                     controls={true}
