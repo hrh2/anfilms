@@ -6,7 +6,7 @@ import HomebgFrame from '../../components/home/HomebgFrame'
 
 export default function MainHome() {
   return (
-<Box>
+<Box className={"bg-black"}>
   <div className='p-6'>
     <HomeNavBar/>
   </div>

@@ -45,7 +45,7 @@ function App() {
   }, []);
   return (
     <>{loader?
-      <div className="flex app justify-center items-center w-full">
+      <div className="flex app justify-center items-center w-full h-screen bg-black">
       <HashLoader color="#36d7b7" />
       </div>:
         <div className='app bg-cover bg-center' style={{backgroundImage:`url(${bgImage})`}}>

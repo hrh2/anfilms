@@ -56,7 +56,7 @@ export default function VideoColumns() {
         ))
       )}
       {loader && (
-        <div className="flex justify-center items-center w-full h-full bg-black">
+        <div className="flex justify-center items-center w-full h-full">
           <HashLoader color="#36d7b7" />
         </div>
       )}
