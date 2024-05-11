@@ -38,7 +38,7 @@ export default function ContactUs() {
       },1000)
     } catch (error) {
       setLoader(false)
-      setError(error.message?error.message:error.response.data.message);
+      setError(error.response ? error.response.data.message : 'Network error the server is down. Try again later');
     }
   };
   return (
