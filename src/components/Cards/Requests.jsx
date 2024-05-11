@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { HashLoader } from "react-spinners";
-import { Alert, IconButton } from '@mui/material';
+import { Alert} from '@mui/material';
 import axios from 'axios';
 import { defaultServerUrl } from '../../data/servers';
 
