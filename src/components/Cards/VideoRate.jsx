@@ -3,6 +3,8 @@ import axios from 'axios';
 import { HashLoader } from "react-spinners";
 import Alert from '@mui/material/Alert';
 import { defaultServerUrl, streamServerUrl} from '../../data/servers';
+import {Link} from "react-router-dom";
+import queryString from "query-string";
 
 
 const VideoRate = () => {
@@ -34,7 +36,6 @@ const VideoRate = () => {
   const reloadPage = () => {
     window.location.reload();
   };
-
   return (
     <div className="grid-one-item grid-common grid-c2">
       {error && (
@@ -59,7 +60,7 @@ const VideoRate = () => {
                   <p>No videos available.</p>
                 ) : (
                   videos.map((video) => (
-                    <div className="grid-item" key={video.id}>
+                    <Link to={`/watch?${queryString.stringify({id: video.id, name: video.name,})}`} className="grid-item" key={video.id}>
                       <div className="grid-item-l">
                         <div className="w-[3rem] rounded-md img-fit-cover">
                           <img src={`${streamServerUrl.image}/api/v1/videos/poster/${encodeURIComponent(video.name)}`} alt={video.name} />
@@ -69,7 +70,7 @@ const VideoRate = () => {
                       <div className="grid-item-r">
                         <span className="text-scarlet">{video.amount}20 %</span>
                       </div>
-                    </div>
+                    </Link>
                   ))
                 )
               )}
