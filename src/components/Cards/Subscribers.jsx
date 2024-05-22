@@ -8,7 +8,7 @@ const Subscribers = () => {
     const [subs, setSubs] = useState([]);
 
     return (
-        <div className="grid-two-item grid-common grid-c4">
+        <div className="grid-two-item grid-common grid-c4 h-[90%] overflow-y-scroll">
             <div className="grid-c-title">
                 <h3 className="grid-c-title-text">Subscribers</h3>
                 <button className="grid-c-title-icon">

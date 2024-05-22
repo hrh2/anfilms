@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { contactus } from '../../data/data';
-import Alert from '@mui/material/Alert';
-import { HashLoader } from "react-spinners";
+import { Alert, TextField, Button, CircularProgress, Container, Typography, Grid, Paper, Box } from '@mui/material';
 import { io } from 'socket.io-client';
-import { defaultServerUrl } from "../../data/servers";
+import { defaultServerUrl } from '../../data/servers';
+import { contactus } from '../../data/data';
+import { MdOutlineOnlinePrediction } from "react-icons/md";
+import { IoCloudOfflineSharp } from "react-icons/io5";
+
+
 
 const socket = io(defaultServerUrl.authentication); // Replace with your server's URL and port
 
@@ -14,16 +17,19 @@ export default function ContactUs() {
     message: '',
   });
   const [error, setError] = useState('');
+  const [online, setOnline] = useState(false);
   const [loader, setLoader] = useState(false);
   const [success, setSuccess] = useState('');
 
   useEffect(() => {
     socket.on('connect', () => {
-      console.log('Connected to server');
+      // console.log('Connected to server');
+      setOnline(true)
     });
 
     socket.on('disconnect', () => {
       console.log('Disconnected from server');
+      setOnline(false)
     });
 
     socket.on('error_message', (data) => {
@@ -40,7 +46,6 @@ export default function ContactUs() {
         message: '',
       });
     });
-
     return () => {
       socket.off('connect');
       socket.off('disconnect');
@@ -61,120 +66,152 @@ export default function ContactUs() {
     setLoader(true);
     setError('');
     setSuccess('');
-
     socket.emit('send_message', data);
   };
 
   return (
-      <div className="container my-24 mx-auto md:px-6">
-        <section className="mb-32">
-          <div className="relative h-[300px] overflow-hidden bg-center bg-cover bg-no-repeat bg-[url('https://www.completeassetfinance.com.au/wp-content/uploads/2020/01/6-min.png')] rounded-t-lg"></div>
-          <div className="container px-6 md:px-12">
-            <div className="block rounded-lg px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] bg-[hsla(0,0%,5%,0.7)] shadow-black/20 md:py-16 md:px-12 -mt-[100px] backdrop-blur-[30px]">
-              <div className="flex flex-wrap">
-                <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
-                  <form className="!text-white" onSubmit={handleSubmit}>
-                    <div className="relative mb-6" data-te-input-wrapper-init>
-                      <input
-                          type="text"
-                          value={data.name}
-                          onChange={handleChange}
-                          name="name"
-                          className="peer block min-h-[auto] w-full !text-[#fff] border-b-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-0 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-0 motion-reduce placeholder:text-gray-800 peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                          id="exampleInput90"
-                          placeholder="Name"
-                      />
-                      <label
-                          className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-gray-800 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce peer-focus:text-primary"
-                          htmlFor="exampleInput90"
-                      >
-                        Name
-                      </label>
-                    </div>
-                    <div className="relative mb-6" data-te-input-wrapper-init>
-                      <input
-                          type="email"
-                          value={data.email}
-                          onChange={handleChange}
-                          name="email"
-                          className="peer block min-h-[auto] w-full !text-[#fff] border-b-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-0 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-0 motion-reduce placeholder:text-gray-800 peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                          id="exampleInput91"
-                          placeholder="Email address"
-                      />
-                      <label
-                          className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-gray-800 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce peer-focus:text-primary"
-                          htmlFor="exampleInput91"
-                      >
-                        Email address
-                      </label>
-                    </div>
-                    <div className="relative mb-6" data-te-input-wrapper-init>
-                    <textarea
-                        value={data.message}
-                        onChange={handleChange}
-                        name="message"
-                        className="peer font-bold block min-h-[auto] w-full !text-[#fff] border-b-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce placeholder:text-gray-800 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                        id="exampleFormControlTextarea1"
-                        rows="3"
-                        placeholder="Your message"
-                        required={true}
-                    ></textarea>
-                      <label
-                          htmlFor="exampleFormControlTextarea1"
-                          className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-gray-800 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce peer-focus:text-primary"
-                      >
-                        Message
-                      </label>
-                    </div>
-                    <div className="mb-6 min-h-[1.5rem] justify-center pl-[1.5rem] flex">
-                      {loader && <HashLoader color="#36d7b7" />}
-                      {success && <Alert severity="success">{success}</Alert>}
-                      {error && <Alert severity="error">{error}</Alert>}
-                    </div>
-                    {!loader && (
-                        <button
-                            type="submit"
-                            data-te-ripple-init
-                            data-te-ripple-color="light"
-                            className="mb-6 !py-3 inline-block w-full rounded bg-gray-700 px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal !text-white transition duration-150 ease-in-out hover:bg-gray-600 focus:bg-gray-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-gray-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] lg:mb-0"
-                        >
-                          Send
-                        </button>
-                    )}
-                  </form>
-                </div>
-                <div className="w-full shrink-0 grow-0 basis-auto lg:w-7/12 grid md:grid-cols-2 grid-cols-1">
-                  {contactus.map((contact) => (
-                      <div key={contact.title}>
-                        <div className="flex flex-wrap">
-                          <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:w-full lg:px-6 xl:w-6/12">
-                            <div className="flex items-start">
-                              <div className="shrink-0">
-                                <div className="inline-block !text-[#000] rounded-md bg-gray-100 p-4 text-primary">
-                                  {contact.label}
-                                </div>
-                              </div>
-                              <div className="px-2">
-                                <p className="font-bold !text-white">
-                                  {contact.title}
-                                </p>
-                                <p className="!text-[#ffffffd8]">
-                                  {contact.email}
-                                </p>
-                                <p className="!text-[#ffffffd8]">
-                                  {contact.phone}
-                                </p>
-                              </div>
-                            </div>
-                          </div>
+      <Container maxWidth="md" sx={{ my: 4 }}>
+        <Paper elevation={3} sx={{ p: 4, backgroundColor: '#0000009d' }}>
+          <Box sx={{ textAlign: 'center', mb: 2 }}>
+            <Typography variant="h4" component="h1" gutterBottom className={"flex gap-x-2 align-middle justify-center"}>
+              Contact Us {online?<MdOutlineOnlinePrediction size={20} className={"text-green-700 cursor-pointer"} title={"The sever is line message can be delivered Here"}/>:
+                <IoCloudOfflineSharp size={20}  className={"text-red-700 cursor-pointer"} title={"Check your network or use contact info below the server might be down"}/>
+            }
+            </Typography>
+          </Box>
+          <form onSubmit={handleSubmit}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                    label="Name"
+                    name="name"
+                    value={data.name}
+                    onChange={handleChange}
+                    variant="outlined"
+                    fullWidth
+                    required
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        '& fieldset': {
+                          borderColor: 'white',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'green',
+                        },
+                        '&.Mui-focused fieldset': {
+                          borderColor: 'green',
+                        },
+                      },
+                      '& .MuiInputLabel-root': {
+                        color: 'white',
+                      },
+                      '& .Mui-focused': {
+                        color: 'green',
+                      },
+                    }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                    label="Email"
+                    name="email"
+                    value={data.email}
+                    onChange={handleChange}
+                    variant="outlined"
+                    fullWidth
+                    required
+                    type="email"
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        '& fieldset': {
+                          borderColor: 'white',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'green',
+                        },
+                        '&.Mui-focused fieldset': {
+                          borderColor: 'green',
+                        },
+                      },
+                      '& .MuiInputLabel-root': {
+                        color: 'white',
+                      },
+                      '& .Mui-focused': {
+                        color: 'green',
+                      },
+                    }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                    label="Message"
+                    name="message"
+                    value={data.message}
+                    onChange={handleChange}
+                    variant="outlined"
+                    fullWidth
+                    required
+                    multiline
+                    rows={4}
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        '& fieldset': {
+                          borderColor: 'white',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'green',
+                        },
+                        '&.Mui-focused fieldset': {
+                          borderColor: 'green',
+                        },
+                      },
+                      '& .MuiInputLabel-root': {
+                        color: 'white',
+                      },
+                      '& .Mui-focused': {
+                        color: 'green',
+                      },
+                    }}
+                />
+              </Grid>
+              <Grid item xs={12} className="flex justify-center">
+                {loader ? (
+                    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                      <CircularProgress />
+                    </Box>
+                ) : (
+                    <Button type="submit" variant="contained" className="w-[60%] py-3" sx={{ backgroundColor: 'green', fontWeight: 'bold' }}>
+                      Send
+                    </Button>
+                )}
+              </Grid>
+              <Grid item xs={12}>
+                {success && <Alert severity="success">{success}</Alert>}
+                {error && <Alert severity="error">{error}</Alert>}
+              </Grid>
+            </Grid>
+          </form>
+          <Box mt={4}>
+            <Grid container spacing={2}>
+              {contactus.map((contact) => (
+                  <Grid item xs={12} md={6} key={contact.title}>
+                    <Paper elevation={1} sx={{ p: 2, display: 'flex', alignItems: 'center', backgroundColor: '#000000' }}>
+                      <Box sx={{ mr: 2 }}>
+                        <div className="rounded-md bg-white p-2 text-black">
+                          {contact.label}
                         </div>
-                      </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+                      </Box>
+                      <Box sx={{ display: 'grid', gap: 1 }}>
+                        <Typography variant="h5">{contact.title}</Typography>
+                        <Typography variant="body2" className="pl-2">{contact.email}</Typography>
+                        <Typography variant="body2" className="pl-2">{contact.phone}</Typography>
+                      </Box>
+                    </Paper>
+                  </Grid>
+              ))}
+            </Grid>
+          </Box>
+        </Paper>
+      </Container>
   );
 }

@@ -43,7 +43,7 @@ export default function VideoColumns({type}) {
       {(error || videos.length === 0) && (
         <div className="flex justify-center items-center w-full h-full">
           <div className=''>
-          <Alert severity="error">{error || `No ${type} videos available.  Try again`}</Alert>
+          <Alert severity="error">{error || `No ${type} available.  Try again`}</Alert>
           <IconButton onClick={reloadPage} variant="contained" className="btn-reload">
             <RxReload size={30} />
           </IconButton>

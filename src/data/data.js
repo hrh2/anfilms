@@ -1,7 +1,15 @@
 import { personsImgs } from "../hooks/images";
-import { MdLibraryMusic,MdOutlineDriveFolderUpload,MdManageAccounts,MdSettings,MdVideoLibrary, MdSpaceDashboard } from "react-icons/md";
+import {
+    MdLibraryMusic,
+    MdOutlineDriveFolderUpload,
+    MdManageAccounts,
+    MdSettings,
+    MdVideoLibrary,
+    MdSpaceDashboard,
+    MdScience
+} from "react-icons/md";
 import { MdLocalMovies } from "react-icons/md";
-import { GiAnimalHide } from "react-icons/gi";
+import {GiAnimalHide, GiCeremonialMask} from "react-icons/gi";
 // eslint-disable-next-line
 import {
     FaUserLock,
@@ -12,10 +20,12 @@ import {
     FaList,
     FaShareAlt,
     FaDownload,
-    FaUserAlt, FaBriefcase, FaLaptop, FaClipboardCheck, FaMoneyBillAlt
+    FaUserAlt, FaBriefcase, FaLaptop, FaClipboardCheck, FaMoneyBillAlt,FaHubspot
+
 } from 'react-icons/fa';
+import { CgGames } from "react-icons/cg";
 import { HiHomeModern } from "react-icons/hi2";
-import { FaUsersRectangle } from "react-icons/fa6";
+import {FaArrowTrendUp, FaUsersRectangle} from "react-icons/fa6";
 import { MdOutlineMessage } from "react-icons/md";
 import React from "react";
 
@@ -34,13 +44,14 @@ export const adminNavigationLinks = [
 
 export const homeNavigationLinks = [
     { id: 783, title: 'Home', link: '/', icon : <HiHomeModern size={25}/> },
-    { id: 93,  title: 'Videos',link: '/videos/Video', icon : <MdVideoLibrary size={27}/> },
-    { id: 272, title: 'Movies',link: '/videos/Movie', icon : <MdLocalMovies   size={27}/> },
-    { id: 233, title: 'CGIs',link: '/videos/CGI', icon : <GiAnimalHide  size={27}/> },
-    { id: 344, title: 'Challenges',link: '/videos/Challenges', icon : <MdLibraryMusic size={27}/> },
-    { id: 34431, title: 'Sports',link: '/videos/Sports', icon : <MdLibraryMusic size={27}/> },
-    { id: 3405, title: 'HUB',link: '/videos/HUB', icon : <MdLibraryMusic size={27}/> },
-    { id: 346, title: 'Trends',link: '/videos/Trends', icon : <MdLibraryMusic size={27}/> },
+    { id: 93,  title: 'Videos',link: '/videos/Videos', icon : <MdVideoLibrary size={27}/> },
+    { id: 272, title: 'Movies',link: '/videos/Movies', icon : <MdLocalMovies   size={27}/> },
+    { id: 233, title: 'CGIs',link: '/videos/CGIs', icon : <GiAnimalHide  size={27}/> },
+    { id: 344, title: 'Challenges',link: '/videos/Challenges', icon : <GiCeremonialMask size={27}/> },
+    { id: 34431, title: 'Games',link: '/videos/Games', icon : <CgGames size={27}/> },
+    { id: 3405, title: 'HUBs',link: '/videos/HUBs', icon : <FaHubspot size={27}/> },
+    { id: 346, title: 'Trends',link: '/videos/Trends', icon : <FaArrowTrendUp  size={27}/> },
+    { id: 366, title: 'Science',link: '/videos/Science', icon : <MdScience  size={27}/> },
 ];
 
 export const videoRate = [

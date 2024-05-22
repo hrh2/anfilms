@@ -15,17 +15,22 @@ const ContentMain = () => {
             <Cards />
         </div>
         <div className="content-grid-two">
-            <Subscribers />
-            <div className="grid-two-item">
-              <div className="subgrid-two">
-                <Subscriptions />
-                <Financial />
-              </div>
+            <div className="!h-[60vh] overflow-y-scroll">
+                <Subscribers/>
+                {/*<Financial/>*/}
             </div>
             <div className="grid-two-item">
-              <div className="subgrid-two">
-                <OwnerDetails />
-              </div>
+                <div className="subgrid-two">
+                    <Subscriptions/>
+                    <div className="!h-[40vh] overflow-y-scroll">
+                        <Financial/>
+                    </div>
+                </div>
+            </div>
+            <div className="grid-two-item">
+                <div className="subgrid-two">
+                    <OwnerDetails/>
+                </div>
             </div>
         </div>
     </div>

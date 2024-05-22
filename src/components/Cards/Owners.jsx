@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 
 const OwnerDetails = () => {
   return (
-    <Link to="/admin/board" className="subgrid-two-item grid-common grid-c6 !h-[47vh] overflow-y-scroll">
+    <Link to="/admin/board" className="subgrid-two-item grid-common grid-c6 overflow-y-scroll">
         <div className="grid-c-title">
             <h3 className="grid-c-title-text">Board</h3>
             <button className="grid-c-title-icon">
