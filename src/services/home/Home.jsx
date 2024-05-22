@@ -51,7 +51,7 @@ function App() {
         <div className='app bg-cover bg-center' style={{backgroundImage:`url(${bgImage})`}}>
         <Sidebar user={user} />
         <div className='main-content !p-0'>
-          <ContentTop error={error} />
+          <ContentTop error={error} user={user} />
           <Outlet/>
           {/* <ContentMain /> */}
           <Footer/>

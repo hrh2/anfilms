@@ -3,10 +3,11 @@ import { useContext } from "react";
 import { SidebarContext } from "../../context/sidebarContext";
 import { ImSearch } from "react-icons/im";
 import { MdMenuOpen } from "react-icons/md";
+import ChatBox from "../Cards/ChatBox";
 
 
 
-const ContentTop = () => {
+const ContentTop = ({user,error}) => {
   const { toggleSidebar } = useContext(SidebarContext);
   return (
     <div className="main-content-top  px-5 py-4 !text-[#fff] !bg-gradient-to-r !from-[#00000045] !to-[#000000d5] !mb-0 shadow-lg">
@@ -16,7 +17,8 @@ const ContentTop = () => {
             </button>
             <h3 className="content-top-title">Home</h3>
         </div>
-        <div className="content-top-btns px-4 pt-2">
+        <div className="content-top-btns px-4 pt-2 flex">
+            <ChatBox user={user} />
             <button type="button" className="search-btn content-top-btn">
                 <ImSearch  size={30}/>
             </button>
