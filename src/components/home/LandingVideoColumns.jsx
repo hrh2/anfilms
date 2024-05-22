@@ -48,16 +48,6 @@ export default function VideoColumns() {
     }}
     className=' absolute !w-full md:top-[40vh]  top-[40vh]'>
     <Box className = {`relative ${loader?'flex justify-center align-middle pt-[4rem]':'grid  md:grid-cols-4 sm:grid-cols-3 grid-cols-1 gap-8'}  !min-h-[50vh]  md:p-[2rem] p-[1.2rem] !pt-[4rem] !pb-[0px] bg-transparent`}>
-    {(error || videos.length === 0) && (
-        <div className="flex justify-center items-center w-full h-full">
-          <div>
-            <Alert severity="error">{error || 'No videos available.'}</Alert>
-            <IconButton onClick={reloadPage} variant="contained" className="btn-reload">
-              <RxReload size={30} />
-            </IconButton>
-          </div>
-        </div>
-      )}
       {!error && !loader && videos.length > 0 && (
         videos.map(video => (
           <Video key={video.id} vidtype={video.vidtype} videoId={video.id} videoName={video.name} />

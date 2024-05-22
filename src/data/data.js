@@ -34,11 +34,13 @@ export const adminNavigationLinks = [
 
 export const homeNavigationLinks = [
     { id: 783, title: 'Home', link: '/', icon : <HiHomeModern size={25}/> },
-    { id: 93, title: 'Videos',link: '/videos/Video', icon : <MdVideoLibrary size={27}/> },
+    { id: 93,  title: 'Videos',link: '/videos/Video', icon : <MdVideoLibrary size={27}/> },
     { id: 272, title: 'Movies',link: '/videos/Movie', icon : <MdLocalMovies   size={27}/> },
     { id: 233, title: 'CGIs',link: '/videos/CGI', icon : <GiAnimalHide  size={27}/> },
-    { id: 344, title: 'Music',link: '/videos/Music', icon : <MdLibraryMusic size={27}/> },
-    { id: 455, title: 'Account',link: '/account', icon : <MdManageAccounts size={27}/>},
+    { id: 344, title: 'Challenges',link: '/videos/Challenges', icon : <MdLibraryMusic size={27}/> },
+    { id: 34431, title: 'Sports',link: '/videos/Sports', icon : <MdLibraryMusic size={27}/> },
+    { id: 3405, title: 'HUB',link: '/videos/HUB', icon : <MdLibraryMusic size={27}/> },
+    { id: 346, title: 'Trends',link: '/videos/Trends', icon : <MdLibraryMusic size={27}/> },
 ];
 
 export const videoRate = [

@@ -9,6 +9,8 @@ import Axios from "axios";
 import { ImCloudUpload } from "react-icons/im";
 import { HashLoader } from "react-spinners";
 import { streamServerUrl } from "../../data/servers";
+import {homeNavigationLinks} from "../../data/data";
+import {Link} from "react-router-dom";
 
 
 
@@ -106,29 +108,19 @@ export default function Upload() {
             required
             ></textarea>
         <h3>Type</h3>
-        <div className='grid grid-cols-2 gap-y-4'>
-          <div className='flex gap-2'>
-              <Radio name="type" id="" onChange={handleChange} value="Video" required={true}/>
-              Edited Video
-          </div>
-          <div className='flex gap-2'>
-              <Radio name="type" id="" onChange={handleChange} value="CGI" required={true}/>
-              CGI
-          </div>
-          <div className='flex gap-2'>
-              <Radio name="type" id="" onChange={handleChange} value="Music" required={true}/>
-              Music
-          </div>
-          <div className='flex gap-2'>
-              <Radio name="type" id="" onChange={handleChange} value="Movie" required={true}/>
-              Movies
-          </div>
+                <div className='grid grid-cols-2 gap-y-4'>
+                    {homeNavigationLinks.map((navigationLink) => (
+                        <div className='flex gap-2' key={navigationLink.id}>
+                            <Radio name="type" id="" onChange={handleChange} value={navigationLink.title} required={true}/>
+                            {navigationLink.title}
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
-        </div>
-        </div>
-          {videoFile && <AdminDragVideo video={videoFile} />}
-          {posterFile && <AdminDragPoster poster={posterFile} />}
-        
+            {videoFile && <AdminDragVideo video={videoFile}/>}
+            {posterFile && <AdminDragPoster poster={posterFile}/>}
+
             {/* <Subscribers /> */}
             <div className="grid-two-item grid-common grid-c4">
               <div className="grid-c-title">
