@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { IoLogoSnapchat } from "react-icons/io";
 import io from 'socket.io-client';
 import { MdOutlineOnlinePrediction } from "react-icons/md";
-import { IoCloudOfflineSharp } from "react-icons/io5";
+import {IoCloudOfflineSharp, IoSend} from "react-icons/io5";
 import { defaultServerUrl } from '../../data/servers';
 
 
@@ -145,9 +145,9 @@ const Chatbox = ({user}) => {
                         <button
                             id="send-button"
                             onClick={handleSendMessage}
-                            className="bg-green-500 text-white px-4 py-2 rounded-r-md hover:bg-green-600 transition duration-300"
+                            className="!text-green-500  px-4 py-2 rounded-r-md hover:!text-green-600 transition duration-300"
                         >
-                            Send
+                            <IoSend size={40} />
                         </button>
                     </div>
                 </div>
