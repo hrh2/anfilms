@@ -1,15 +1,15 @@
 export const streamServerUrl ={
-free:"https://rebavid-free-stream-api.onrender.com",
-watching:"https://rebavid-stream-api.onrender.com",
-image:"https://rebavid-images.onrender.com",
-defaultPlayer:"https://rebavid-default-api.onrender.com",
-upload:"https://rebavid-upload-api.onrender.com"
+free:"https://rebavid.ue.r.appspot.com",
+watching:"https://rebavid.ue.r.appspot.com",
+image:"https://rebavid.ue.r.appspot.com",
+defaultPlayer:"https://rebavid.ue.r.appspot.com",
+upload:"https://rebavid.ue.r.appspot.com"
 }
 
 export const defaultServerUrl ={
-    activities:"https://rebavid.onrender.com",
-    authentication:"https://rebavid-auth-api.onrender.com",
-    accountActivities:"https://rebavid-user-api.onrender.com",
+    activities:"https://rebavid.ue.r.appspot.com",
+    authentication:"https://rebavid.ue.r.appspot.com",
+    accountActivities:"https://rebavid.ue.r.appspot.com",
 }
 
 export const admin ={}
