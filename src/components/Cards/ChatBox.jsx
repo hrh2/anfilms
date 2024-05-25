@@ -40,6 +40,11 @@ const Chatbox = ({ user }) => {
         },
         {
             name: 'Admin',
+            status:true,
+            message: `before sending message wait for green status  in the top-bar to appear if you still have red status cloud `,
+        },
+        {
+            name: 'Admin',
             message: `All demanding requests can be sent here`,
         },
         {
@@ -82,6 +87,7 @@ const Chatbox = ({ user }) => {
 
         const timerId = setInterval(() => {
             setCurrentTime(new Date());
+            setError('')
         }, 1000);
 
         return () => {
@@ -101,9 +107,9 @@ const Chatbox = ({ user }) => {
     const handleSendMessage = () => {
         if (userMessage.trim() !== '') {
             setLoader(true);
-            const message = { name: 'User', message: userMessage, email: user.email };
+            const message = {name: 'User', message: userMessage, email: user.email };
             socket.emit('send_message', message);
-            setMessages([...messages, message]);
+            // setMessages([...messages, message]);
             setUserMessage('');
         }
     };
@@ -126,9 +132,9 @@ const Chatbox = ({ user }) => {
                         <p className="text-lg font-semibold text-[#fff]">To us {formatTime(currentTime)}</p>
                         <div className="flex items-center gap-2">
                             {online ? (
-                                <MdOutlineOnlinePrediction size={20} className="text-green-400" title="Connected" />
+                                <MdOutlineOnlinePrediction size={20} className="text-green-400 cursor-pointer" title="Connected" />
                             ) : (
-                                <IoCloudOfflineSharp size={20} className="text-red-400" title="Disconnected" />
+                                <IoCloudOfflineSharp size={20} className="text-red-400 cursor-progress" title="Disconnected" />
                             )}
                             <button
                                 id="close-chat"
@@ -153,7 +159,7 @@ const Chatbox = ({ user }) => {
                                             : 'bg-gray-200 text-gray-700'
                                     } rounded-lg py-2 px-4 inline-block`}
                                 >
-                                    {msg.message}
+                                    {msg.message}{msg.status&&<><IoCloudOfflineSharp size={15} className="text-red-400 cursor-help" title="Means Disconnected to internet" /></>}
                                 </p>
                             </div>
                         ))}
