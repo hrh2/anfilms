@@ -28,8 +28,8 @@ const Sidebar = ({ user }) => {
   return (
     <div className={`sidebar ${sidebarclassName} relative !bg-gradient-to-tl from-[#20f48e26] to-[#030303f5]`}>
       <div className='fixed'>
-        <div className="user-info cursor-pointer">
-          <Link to={user.lastName ?"/account":"/admin"}>
+        <div className=" cursor-pointer">
+          <Link to={user.lastName ?"/account":"/admin"} className='user-info'>
           <div className="info-img img-fit-cover">
               <img src={user.image ? user.image : personsImgs.person_one} alt="child" />
           </div>
