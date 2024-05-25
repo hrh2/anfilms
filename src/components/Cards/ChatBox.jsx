@@ -51,6 +51,9 @@ const Chatbox = ({user}) => {
 
     const toggleChatbox = () => {
         setIsChatboxOpen(!isChatboxOpen);
+        socket.on('connect', () => {
+            setOnline(true);
+        });
     };
 
     const handleSendMessage = () => {
