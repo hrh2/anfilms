@@ -29,10 +29,12 @@ const Sidebar = ({ user }) => {
     <div className={`sidebar ${sidebarclassName} relative !bg-gradient-to-tl from-[#20f48e26] to-[#030303f5]`}>
       <div className='fixed'>
         <div className="user-info cursor-pointer">
+          <Link to={user.lastName ?"/account":"/admin"}>
           <div className="info-img img-fit-cover">
-            <img src={user.image ? user.image : personsImgs.person_one} alt="child" />
+              <img src={user.image ? user.image : personsImgs.person_one} alt="child" />
           </div>
           <span className="info-name !text-[#fff]">{user.lastName ? user.lastName : user.role? user.role : "Am in"}</span>
+          </Link>
         </div>
 
         <nav className="navigation">

@@ -11,7 +11,9 @@ const ContentMain = () => {
     <div className="main-content-holder p-4">
         <div className="content-grid-one">
             <Report />
-            <VideoRate />
+            <div className="!h-[40vh] overflow-y-scroll">
+                <VideoRate />
+            </div>
             <Cards />
         </div>
         <div className="content-grid-two">
