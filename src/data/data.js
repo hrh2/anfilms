@@ -6,7 +6,8 @@ import {
     MdSettings,
     MdVideoLibrary,
     MdSpaceDashboard,
-    MdScience
+    MdScience,
+    MdMusicVideo
 } from "react-icons/md";
 import { MdLocalMovies } from "react-icons/md";
 import {GiAnimalHide, GiCeremonialMask} from "react-icons/gi";
@@ -46,6 +47,7 @@ export const homeNavigationLinks = [
     { id: 783, title: 'Home', link: '/', icon : <HiHomeModern size={25}/> },
     { id: 93,  title: 'Videos',link: '/videos/Videos', icon : <MdVideoLibrary size={27}/> },
     { id: 272, title: 'Movies',link: '/videos/Movies', icon : <MdLocalMovies   size={27}/> },
+    { id: 272, title: 'Musics',link: '/videos/Musics', icon : <MdMusicVideo   size={27}/> },
     { id: 233, title: 'CGIs',link: '/videos/CGIs', icon : <GiAnimalHide  size={27}/> },
     { id: 344, title: 'Challenges',link: '/videos/Challenges', icon : <GiCeremonialMask size={27}/> },
     { id: 34431, title: 'Games',link: '/videos/Games', icon : <CgGames size={27}/> },

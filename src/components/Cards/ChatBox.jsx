@@ -9,7 +9,7 @@ import { defaultServerUrl } from '../../data/servers';
 const socket = io(defaultServerUrl.authentication); // Replace with your server URL
 
 const Chatbox = ({user}) => {
-    const [isChatboxOpen, setIsChatboxOpen] = useState(true);
+    const [isChatboxOpen, setIsChatboxOpen] = useState(false);
     const [messages, setMessages] = useState([]);
     const [userMessage, setUserMessage] = useState('');
     const [online, setOnline] = useState(false);
