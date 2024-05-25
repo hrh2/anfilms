@@ -2,15 +2,55 @@ import React, { useState, useEffect } from 'react';
 import { IoLogoSnapchat } from "react-icons/io";
 import io from 'socket.io-client';
 import { MdOutlineOnlinePrediction } from "react-icons/md";
-import {IoCloudOfflineSharp, IoSend} from "react-icons/io5";
+import { IoCloudOfflineSharp, IoSend } from "react-icons/io5";
 import { defaultServerUrl } from '../../data/servers';
-
 
 const socket = io(defaultServerUrl.authentication); // Replace with your server URL
 
-const Chatbox = ({user}) => {
+const formatTime = (date) => {
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
+
+    hours = hours < 10 ? '0' + hours : hours;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    return `${hours}:${minutes}:${seconds}`;
+};
+
+const formatDate = (date) => {
+    let day = date.getDate();
+    let month = date.getMonth() + 1; // Months are zero-indexed
+    let year = date.getFullYear();
+
+    day = day < 10 ? '0' + day : day;
+    month = month < 10 ? '0' + month : month;
+
+    return `${day}/${month}/${year}`;
+};
+
+const Chatbox = ({ user }) => {
+    const [currentTime, setCurrentTime] = useState(new Date());
     const [isChatboxOpen, setIsChatboxOpen] = useState(false);
-    const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState([
+        {
+            name: 'Admin',
+            message: `Hey, it's on ${formatDate(new Date())}`,
+        },
+        {
+            name: 'Admin',
+            message: `All demanding requests can be sent here`,
+        },
+        {
+            name: 'Admin',
+            message: `Including Video or any other changes`,
+        },
+        {
+            name: 'Admin',
+            message: `Kereka icyo udashaka!!😝`,
+        },
+    ]);
     const [userMessage, setUserMessage] = useState('');
     const [online, setOnline] = useState(false);
     const [loader, setLoader] = useState(false);
@@ -40,26 +80,28 @@ const Chatbox = ({user}) => {
             setSuccess(data.message);
         });
 
+        const timerId = setInterval(() => {
+            setCurrentTime(new Date());
+        }, 1000);
+
         return () => {
             socket.off('connect');
             socket.off('disconnect');
             socket.off('new_message');
             socket.off('error_message');
             socket.off('message_sent');
+            clearInterval(timerId);
         };
     }, []);
 
     const toggleChatbox = () => {
         setIsChatboxOpen(!isChatboxOpen);
-        socket.on('connect', () => {
-            setOnline(true);
-        });
     };
 
     const handleSendMessage = () => {
         if (userMessage.trim() !== '') {
             setLoader(true);
-            const message = { name:'User',message: userMessage, email: user.email };
+            const message = { name: 'User', message: userMessage, email: user.email };
             socket.emit('send_message', message);
             setMessages([...messages, message]);
             setUserMessage('');
@@ -71,7 +113,7 @@ const Chatbox = ({user}) => {
             <button
                 id="open-chat"
                 onClick={toggleChatbox}
-                className="!text-white py-2 px-4 rounded-md hover:!text-green-600 transition duration-300 flex items-center"
+                className={`${isChatboxOpen ? '!text-[#13ff6eb9]' : '!text-white'} py-2 px-4 rounded-md hover:!text-green-600  transition duration-300 flex items-center`}
             >
                 <IoLogoSnapchat size={30} />
             </button>
@@ -81,7 +123,7 @@ const Chatbox = ({user}) => {
             >
                 <div className="bg-white shadow-md rounded-lg max-w-lg w-full">
                     <div className="p-4 border-b bg-green-700 text-white rounded-t-lg flex justify-between items-center">
-                        <p className="text-lg font-semibold text-[#fff]">To us</p>
+                        <p className="text-lg font-semibold text-[#fff]">To us {formatTime(currentTime)}</p>
                         <div className="flex items-center gap-2">
                             {online ? (
                                 <MdOutlineOnlinePrediction size={20} className="text-green-400" title="Connected" />
@@ -102,16 +144,16 @@ const Chatbox = ({user}) => {
                         {messages.map((msg, index) => (
                             <div
                                 key={index}
-                                className={`mb-2 ${msg.sender === 'user' ? 'text-right' : ''}`}
+                                className={`mb-2 ${msg.name === 'User' ? 'text-right' : ''}`}
                             >
                                 <p
                                     className={`${
-                                        msg.sender === 'user'
+                                        msg.name === 'User'
                                             ? 'bg-green-500 text-white'
                                             : 'bg-gray-200 text-gray-700'
                                     } rounded-lg py-2 px-4 inline-block`}
                                 >
-                                    {msg.text}
+                                    {msg.message}
                                 </p>
                             </div>
                         ))}
