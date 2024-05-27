@@ -7,6 +7,7 @@ import bgImage from "../../assets/bg.png"
 import { RxReload } from "react-icons/rx";
 import axios from 'axios';
 import { defaultServerUrl } from '../../data/servers';
+import Pricing from '../../views/home/Pricing';
 
 export default function VideoColumns() {
   const [videos, setVideos] = useState([]);
@@ -59,6 +60,8 @@ export default function VideoColumns() {
         </div>
       )}
     </Box>
+      <div className='!text-white justify-center font-sans text-center md:text-3xl text-2xl '>PRICING</div>
+      <Pricing/>
       <HomeFooter/>
     </Box>
   )
